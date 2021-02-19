@@ -145,7 +145,7 @@ function QuoteForm(props) {
                     </Col>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Control name="Exhibit" as="select" onChange={selectHandler}>
+                    <Form.Control name="exhibit" as="select" onChange={selectHandler}>
                         <option selected disabled> --- Exhibitor Packages --- </option>
                         <option value="0">No Exhibitors</option>
                         <option value="500">Up to 10 Exhibitors ($500) </option>
