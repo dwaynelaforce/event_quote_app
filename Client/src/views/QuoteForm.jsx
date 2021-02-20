@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import FinalQuote from './FinalQuote.jsx';
 import { Form, Row, Col, Image, Button } from 'react-bootstrap';
-
+import axios from 'axios';
 function QuoteForm(props) {
     const [quote, setQuote] = useState({ feedback: 0 });
     const [subtotal, setSubtotal] = useState(0);
@@ -91,6 +91,39 @@ function QuoteForm(props) {
                     <Image style={{margin:"0 auto"}} src="https://whova.com/wp-content/uploads/2015/11/whova-logo-white.png" fluid/>
                 </Row>
                 <h1 className="my-3 text-center">Quote Generator (TM)</h1>
+                <Form.Group>
+                    <Form.Label inline> Name</Form.Label>
+                    <Form.Control type="text" placeholder="name" inline/>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label inline> Organization Name</Form.Label>
+                    <Form.Control type="text" placeholder="Organization Name" inline/>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label inline> Organization Address</Form.Label>
+                    <Form.Control type="text" placeholder="Organization Address" inline/>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label inline> Email</Form.Label>
+                    <Form.Control type="email" placeholder="email" inline/>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label inline> Event Start Date</Form.Label>
+                    <Form.Control type="date" inline/>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label inline> Event End Date</Form.Label>
+                    <Form.Control type="date" inline/>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label> Event Start Date</Form.Label>
+                    <Form.Control type="date" />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label> Number of Events</Form.Label>
+                    <Form.Control type="number"/>
+                </Form.Group>
+                <Form.Label> If more than one event, fill out the rest of the form. Otherwise submit</Form.Label>
                 <Form.Group>
                     <Form.Control name="tier" as="select" onChange={selectHandler}>
                         <option selected> --- Choose a starting tier --- </option>
