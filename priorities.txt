@@ -1,8 +1,11 @@
 --- P1 ----------------------------------------------------------------
+containerizing components
 get quoteform to save to database
 individual inquiry view on admin page
 --- P2 ----------------------------------------------------------------
 styling
+create a gmail account, that sends every quote to it
+https://www.w3schools.com/nodejs/nodejs_email.asp
 --- P3 ----------------------------------------------------------------
 deployment, creating unqique password and url
 --- P4 ----------------------------------------------------------------

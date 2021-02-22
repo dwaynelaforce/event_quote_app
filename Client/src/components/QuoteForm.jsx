@@ -87,42 +87,6 @@ function QuoteForm(props) {
     return (
         <div>
             <Form>
-                <Row>
-                    <Image style={{margin:"0 auto"}} src="https://whova.com/wp-content/uploads/2015/11/whova-logo-white.png" fluid/>
-                </Row>
-                <h1 className="my-3 text-center">Quote Generator (TM)</h1>
-                <Form.Group>
-                    <Form.Label inline> Name</Form.Label>
-                    <Form.Control type="text" placeholder="name" inline/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label inline> Organization Name</Form.Label>
-                    <Form.Control type="text" placeholder="Organization Name" inline/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label inline> Organization Address</Form.Label>
-                    <Form.Control type="text" placeholder="Organization Address" inline/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label inline> Email</Form.Label>
-                    <Form.Control type="email" placeholder="email" inline/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label inline> Event Start Date</Form.Label>
-                    <Form.Control type="date" inline/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label inline> Event End Date</Form.Label>
-                    <Form.Control type="date" inline/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label> Event Start Date</Form.Label>
-                    <Form.Control type="date" />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label> Number of Events</Form.Label>
-                    <Form.Control type="number"/>
-                </Form.Group>
                 <Form.Label> If more than one event, fill out the rest of the form. Otherwise submit</Form.Label>
                 <Form.Group>
                     <Form.Control name="tier" as="select" onChange={selectHandler}>
@@ -282,7 +246,7 @@ function QuoteForm(props) {
                 </Form.Group>
             </Form>
             <h3> Subtotal: ${subtotal}.00</h3>
-            <Button variant="success" onClick={finalQuoteHandler}> Get my quote!</Button>
+            <Button variant="success" onClick={finalQuoteHandler}> Save </Button>
             <FinalQuote total={total} subtotal={subtotal} quote={quote} discounts={discounts} />
         </div>
 

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const InquirySchema = new mongoose.Schema({
-    organizationName:{type:String, required:[true, "Required: Organization Name"]},
-    organizationAddress:{type:String, required:[true, "Required: Address"]},
+    orgName:{type:String, required:[true, "Required: Organization Name"]},
+    orgAddress:{type:String, required:[true, "Required: Address"]},
     contactName:{type:String, required:[true, "Required: Name"]},
     contactEmail:{type:String, required:[true, "Required: Email"]},
     eventStart:{type:Date, required:[false]},
