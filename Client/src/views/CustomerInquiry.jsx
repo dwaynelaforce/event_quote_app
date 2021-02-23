@@ -6,17 +6,24 @@ import axios from 'axios';
 
 
 function CustomerInquiry(props) {
-    const [inquiry, setInquiry] = useState({});
+    const [inquiry, setInquiry] = useState({numberOfEvents:1, masterQuote:null});
+    
     function inquiryUpdateHandler(e){
         e.preventDefault();
         let key = e.target.name;
-        let val = e.target.value;
+        let val;
+        if (key === "numberOfEvents") {
+            val = parseInt(e.target.value)
+        } else {
+            val = e.target.value;
+        }
         inquiry[key]= val;
         setInquiry(inquiry);
     }
 
     function submitHandler(e) {
         e.preventDefault();
+        console.log("submitHandler: inquiry is ", inquiry);
         axios.post('http://localhost:8000/api/create', inquiry)
             .then(response => console.log("successfully added to db", response))
             .catch(err => console.log("there was an error adding to the db", err))
@@ -56,17 +63,17 @@ function CustomerInquiry(props) {
                     </Form.Group>
                 </Row>
                 <Row>
-                    <Col>
-                        <p>Interested in multiple events?</p>
-                        <p>If so, we can provide you a quote right now!</p>
-                    </Col>
                     <Form.Group as={Col}>
                         <Form.Label>Number of Events</Form.Label>
                         <Form.Control type="number" name="numberOfEvents" min={1} max={100} defaultValue={1} onChange={inquiryUpdateHandler}/>
                     </Form.Group>
+                    <Col>
+                        <Button variant="success" type="submit"> Request Quote for Single Event</Button>
+                    </Col>
                 </Row>
-                <Button variant="success" type="submit">Submit</Button>
             </Form>
+            <QuoteForm inquiry={inquiry} setInquiry={setInquiry}/>
+            <Button variant="success" onClick={submitHandler}>Send to Whova</Button>
         </Container>
     );
 }

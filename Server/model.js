@@ -7,7 +7,7 @@ const InquirySchema = new mongoose.Schema({
     eventStart:{type:Date, required:[false]},
     eventEnd:{type:Date, required:[false]},
     numberOfEvents: Number,
-    multiEventQuote:{type: Object, required:[false]},
+    masterQuote:{type: Object, required:[false]},
 
 
     // moving these into an object

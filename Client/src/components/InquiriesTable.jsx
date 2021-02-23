@@ -28,6 +28,7 @@ function InquiriesTable(props){
                         <th>Event Date</th>
                         <th>Events</th>
                         <th>Actions</th>
+                        <th>Quote$total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,11 +36,14 @@ function InquiriesTable(props){
                         <tr key={index}>
                             <td>{inquiry.createdAt}</td>
                             <td>{inquiry.contactName}</td>
-                            <td>{inquiry.organizationName}</td>
-                            <td>{inquiry.organizationAddress}</td>
+                            <td>{inquiry.orgName}</td>
+                            <td>{inquiry.contactEmail}</td>
                             <td>{inquiry.eventStart}</td>
                             <td>{inquiry.numberOfEvents}</td>
                             <td> <button onClick={()=>deleteHandler(inquiry._id)}>Delete</button></td>
+                            { inquiry.masterQuote ? 
+                                <td>{inquiry.masterQuote.total}</td>
+                            : null }
                         </tr>
                     )}
                 </tbody>

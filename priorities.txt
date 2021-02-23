@@ -1,13 +1,14 @@
 --- P1 ----------------------------------------------------------------
-containerizing components
-get quoteform to save to database
-individual inquiry view on admin page
+get add ons to save to db
+add a view button in admin 
+success page
 --- P2 ----------------------------------------------------------------
 styling
 create a gmail account, that sends every quote to it
 https://www.w3schools.com/nodejs/nodejs_email.asp
 --- P3 ----------------------------------------------------------------
 deployment, creating unqique password and url
+validation errors appearing next to form inputs
 --- P4 ----------------------------------------------------------------
 --- P5 ----------------------------------------------------------------
 
