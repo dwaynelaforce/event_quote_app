@@ -85,8 +85,8 @@ function QuoteForm(props) {
         for (let key in discounts) {
             console.log(key, discounts[key])
         }
-        console.log("total is ", temp_total);
-
+        console.log("temp_total is ", temp_total);
+        console.log("total is: ", total);
         masterQuoteHandler();
 
     }
