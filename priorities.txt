@@ -1,16 +1,22 @@
+P1 ##################
+    UX
+        basic date format (truncate string? regex?)
+        basic validation errors displayed to user somewhere
+        basic dollar amt formatting (just add $ .00 in JSX?)
+        adming page - rename items in itimized quote
+        minimal CSS
+    AWS deployment
+
 P2 ##################
-    regex dates
-    regex $ amts
-    styling / UX
-    create a gmail account, that sends every quote to it
-    https://www.w3schools.com/nodejs/nodejs_email.asp
-    proper names for masterquote
+    order inquriries table by start date
+    custom domain/website URL for deployment
+    regex $ amts with commas, etc.
+    implement nodejs emails - https://www.w3schools.com/nodejs/nodejs_email.asp
     admin page inquiries are sorted by date (created? or event?)\
-    adming page - rename items in itimized quote
+    validation errors are better
 
 P3 ##################
-    deployment, creating unqique password and url
-    validation errors appearing next to form inputs
+    admin page - button to delete all
 
 DONE ################
     

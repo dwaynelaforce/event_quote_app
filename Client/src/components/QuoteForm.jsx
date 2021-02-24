@@ -12,6 +12,7 @@ function QuoteForm(props) {
     
     const { inquiry, setInquiry } = props;
 
+    // this function updates keys/values in quote and updates subtotal in state
     function quoteUpdateHandler(key, val) {
         quote[key] = val;
         let sum = 0;
@@ -21,12 +22,17 @@ function QuoteForm(props) {
         setSubtotal(sum);
     }
 
+    // valuse for keys in quote are stored in the JSX element tags
+    // (not best practice but fixing that is a P2)
+
+    // gets key/value from select tags, sends to quoteUpdateHandler
     function selectHandler(e) {
         let key = e.target.name;
         let val = parseInt(e.target.value);
         quoteUpdateHandler(key, val);
     }
-
+    
+    // gets key/value from checkbox tags, sends to quoteUpdateHandler
     function checkboxHandler(e) {
         let key = e.target.name;
         let val;
@@ -81,14 +87,7 @@ function QuoteForm(props) {
         temp_total -= tierDiscount;
         // apply final discount
         temp_total -= finalDiscount;
-        setTotal(temp_total);
-        console.log("subtotal:", subtotal);
-        for (let key in discounts) {
-            console.log(key, discounts[key])
-        }
         setDiscounts(discounts);
-        console.log("temp_total is ", temp_total);
-        console.log("total is: ", total);
         masterQuoteHandler(temp_total);
     }
     function masterQuoteHandler(temp_total){

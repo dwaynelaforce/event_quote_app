@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import FinalaQuote from '../components/FinalQuote.jsx';
 import QuoteForm from '../components/QuoteForm.jsx';
 import { Container, Form, Row, Col, Image, Button } from 'react-bootstrap';
 import axios from 'axios';
