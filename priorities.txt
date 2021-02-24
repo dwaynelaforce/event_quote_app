@@ -1,9 +1,12 @@
 P2 ##################
     regex dates
     regex $ amts
-    styling
+    styling / UX
     create a gmail account, that sends every quote to it
     https://www.w3schools.com/nodejs/nodejs_email.asp
+    proper names for masterquote
+    admin page inquiries are sorted by date (created? or event?)\
+    adming page - rename items in itimized quote
 
 P3 ##################
     deployment, creating unqique password and url
