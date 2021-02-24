@@ -25,3 +25,8 @@ module.exports.deleteAll = (request, response) => {
     .then(deleteConfirmation => response.json(deleteConfirmation))
     .catch(err => response.json(err));
 }
+module.exports.getInquiryById = (request, response) => {
+    Inquiry.findById(request.params.id)
+        .then(inquiry => response.json(inquiry))
+        .catch(err => response.json(err));
+}

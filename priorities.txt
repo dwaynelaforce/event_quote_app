@@ -1,7 +1,7 @@
 --- P1 ----------------------------------------------------------------
-get add ons to save to db
-add a view button in admin 
+masterQuote component to be child of InquiryInfo
 success page
+bug - total sometimes needs to be calculated twice to be correct
 --- P2 ----------------------------------------------------------------
 styling
 create a gmail account, that sends every quote to it
@@ -12,4 +12,6 @@ validation errors appearing next to form inputs
 --- P4 ----------------------------------------------------------------
 --- P5 ----------------------------------------------------------------
 
-
+--- DONE --------------------------------------------------------------
+P1 - get add ons to save to db
+P1 - add a view button in admin 

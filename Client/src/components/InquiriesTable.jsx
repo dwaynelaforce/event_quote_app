@@ -10,7 +10,6 @@ function InquiriesTable(props){
         .then(setInquiriesList(inquiriesList.filter(inquiry => inquiry._id !== id)))
         .catch(err => console.log(err));
     };
-
     if (props.isLoggedIn === true) {
         if (inquiriesList.length === 0) {
             return (
@@ -28,7 +27,7 @@ function InquiriesTable(props){
                         <th>Event Date</th>
                         <th>Events</th>
                         <th>Actions</th>
-                        <th>Quote$total</th>
+                        <th>Quote</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,8 +41,9 @@ function InquiriesTable(props){
                             <td>{inquiry.numberOfEvents}</td>
                             <td> <button onClick={()=>deleteHandler(inquiry._id)}>Delete</button></td>
                             { inquiry.masterQuote ? 
-                                <td>{inquiry.masterQuote.total}</td>
+                                <td>${inquiry.masterQuote.total}.00</td>
                             : null }
+                            <td><a href={"/api/inquiry/" + inquiry._id}>View</a></td>
                         </tr>
                     )}
                 </tbody>
