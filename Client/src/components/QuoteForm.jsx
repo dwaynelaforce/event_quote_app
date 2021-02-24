@@ -47,6 +47,7 @@ function QuoteForm(props) {
     }
 
     function finalQuoteHandler(e) {
+        e.preventDefault();
         let tierDiscount = Math.ceil(quote.tier * 0.2);
         discounts["20% tier discount"] = tierDiscount;
         let finalDiscount = 0;
@@ -85,16 +86,16 @@ function QuoteForm(props) {
         for (let key in discounts) {
             console.log(key, discounts[key])
         }
+        setDiscounts(discounts);
         console.log("temp_total is ", temp_total);
         console.log("total is: ", total);
-        masterQuoteHandler();
-
+        masterQuoteHandler(temp_total);
     }
-    function masterQuoteHandler(){
+    function masterQuoteHandler(temp_total){
         masterQuote.quote = quote;
         masterQuote.subtotal = subtotal;
         masterQuote.discounts = discounts;
-        masterQuote.total = total;
+        masterQuote.total = temp_total;
         setMasterQuote(masterQuote);
         inquiry.masterQuote = masterQuote;
         setInquiry(inquiry);

@@ -1,6 +1,3 @@
-P1 ##################
-    bug - total sometimes needs to be calculated twice to be correct
-
 P2 ##################
     regex dates
     regex $ amts
@@ -13,7 +10,12 @@ P3 ##################
     validation errors appearing next to form inputs
 
 DONE ################
-    P1 - get add ons to save to db
-    P1 - add a view button in admin 
-    P1 - masterQuote component to be child of InquiryInfo
-    P1 - success page
+    
+    P1 ##################
+        get add ons to save to db
+        add a view button in admin 
+        masterQuote component to be child of InquiryInfo
+        success page
+        bug - total sometimes needs to be calculated twice to be correct
+
+    P2 ##################
