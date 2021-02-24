@@ -7,7 +7,7 @@ function FinalQuote(props){
                 <p>Your subtotal is: ${subtotal}</p>
                 {Object.keys(discounts).map((key,idx)=>(
                     <p key={idx}> {key}: -${discounts[key]}</p>
-                    ))} 
+                ))} 
                 <h1>Your final total is: ${total}</h1>
             </div>
         );

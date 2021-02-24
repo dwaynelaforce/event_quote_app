@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import FinalQuote from '../components/FinalQuote.jsx';
+import FinalaQuote from '../components/FinalQuote.jsx';
 import QuoteForm from '../components/QuoteForm.jsx';
 import { Container, Form, Row, Col, Image, Button } from 'react-bootstrap';
 import axios from 'axios';
-
+import {navigate} from '@reach/router';
 
 function CustomerInquiry(props) {
     const [inquiry, setInquiry] = useState({numberOfEvents:1, masterQuote:null});
@@ -25,7 +25,11 @@ function CustomerInquiry(props) {
         e.preventDefault();
         console.log("submitHandler: inquiry is ", inquiry);
         axios.post('http://localhost:8000/api/create', inquiry)
-            .then(response => console.log("successfully added to db", response))
+            .then(response => {
+                console.log("successfully added to db", response);
+                window.alert("Thank you for submitting your inquiry!  A Whova representative will get back to you shortly.  Your inquiry details are on the next page.");
+                navigate(`/api/inquiry/${response.data._id}`);
+            })
             .catch(err => console.log("there was an error adding to the db", err))
     }
 

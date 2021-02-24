@@ -1,17 +1,19 @@
---- P1 ----------------------------------------------------------------
-masterQuote component to be child of InquiryInfo
-success page
-bug - total sometimes needs to be calculated twice to be correct
---- P2 ----------------------------------------------------------------
-styling
-create a gmail account, that sends every quote to it
-https://www.w3schools.com/nodejs/nodejs_email.asp
---- P3 ----------------------------------------------------------------
-deployment, creating unqique password and url
-validation errors appearing next to form inputs
---- P4 ----------------------------------------------------------------
---- P5 ----------------------------------------------------------------
+P1 ##################
+    bug - total sometimes needs to be calculated twice to be correct
 
---- DONE --------------------------------------------------------------
-P1 - get add ons to save to db
-P1 - add a view button in admin 
+P2 ##################
+    regex dates
+    regex $ amts
+    styling
+    create a gmail account, that sends every quote to it
+    https://www.w3schools.com/nodejs/nodejs_email.asp
+
+P3 ##################
+    deployment, creating unqique password and url
+    validation errors appearing next to form inputs
+
+DONE ################
+    P1 - get add ons to save to db
+    P1 - add a view button in admin 
+    P1 - masterQuote component to be child of InquiryInfo
+    P1 - success page

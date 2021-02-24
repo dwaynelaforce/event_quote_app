@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import {Container, Table, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
+import MasterQuote from './MasterQuote.jsx'
 function InquiryInfo(props) {
     const [myInquiry, setMyInquiry] = useState(null);
     
@@ -48,6 +49,7 @@ function InquiryInfo(props) {
                     <p>{myInquiry.eventEnd}</p>
                 </Col>
             </Row>
+            <MasterQuote masterQuote={myInquiry.masterQuote}/>
         </Container>
     );
 }

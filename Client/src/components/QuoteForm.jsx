@@ -174,7 +174,7 @@ function QuoteForm(props) {
             </Form.Group>
             <Form.Group as={Row}>
                 <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="800" name="career fair tools" />
+                    <Form.Check type="checkbox" onChange={checkboxHandler} value="800" name="careerFairTools" />
                 </Col>
                 <Col>
                     <Form.Label > Career Fair Tools</Form.Label>
