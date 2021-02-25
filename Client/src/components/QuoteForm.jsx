@@ -4,7 +4,7 @@ import { Form, Row, Col, Image, Button } from 'react-bootstrap';
 import axios from 'axios';
 
 function QuoteForm(props) {
-    const [quote, setQuote] = useState({ feedback: 0 });
+    const [quote, setQuote] = useState({});
     const [subtotal, setSubtotal] = useState(0);
     const [discounts, setDiscounts] = useState({});
     const [total, setTotal] = useState(0);
@@ -47,9 +47,10 @@ function QuoteForm(props) {
     }
 
     function finalQuoteHandler(e) {
-        e.preventDefault();
-        let tierDiscount = Math.ceil(quote.tier * 0.2);
+        
+        let tierDiscount = Math.ceil(quote.Tier * 0.2);
         discounts["20% tier discount"] = tierDiscount;
+        console.log("tier discount is: ", tierDiscount)
         let finalDiscount = 0;
         // spend $5000 = 10% discount
         if (subtotal >= 5000 && subtotal < 8000) {
@@ -106,7 +107,7 @@ function QuoteForm(props) {
         <Form onSubmit={masterQuoteHandler}>
             <Form.Label> If more than one event, fill out the rest of the form</Form.Label>
             <Form.Group>
-                <Form.Control name="tier" as="select" onChange={selectHandler}>
+                <Form.Control name="Tier" as="select" onChange={selectHandler}>
                     <option selected> --- Choose a starting tier --- </option>
                     <option value="1599">Tier 1 - up to 500 attendees | $1,599 </option>
                     <option value="2399">Tier 2 - up to 1,500 attendees | $2,399</option>
@@ -116,7 +117,7 @@ function QuoteForm(props) {
             </Form.Group>
             <Form.Group as={Row}>
                 <Col>
-                    <Form.Check name="feedback" type="checkbox" value="300" onChange={checkboxHandler} inline />
+                    <Form.Check name="Speaker/Session Feedback" type="checkbox" value="300" onChange={checkboxHandler} inline />
                 </Col>
                 <Col>
                     <Form.Label>Speaker/Session Feedback</Form.Label>
@@ -127,7 +128,7 @@ function QuoteForm(props) {
             </Form.Group>
             <Form.Group as={Row}>
                 <Col>
-                    <Form.Control type="number" name="surveys" onChange={numberHandler} multiplier="80" />
+                    <Form.Control type="number" name="Pre/Post-Event Surveys" onChange={numberHandler} multiplier="80" />
                 </Col>
                 <Col>
                     <Form.Label>Pre/Post-Event Surveys</Form.Label>
@@ -138,7 +139,7 @@ function QuoteForm(props) {
             </Form.Group>
             <Form.Group as={Row}>
                 <Col>
-                    <Form.Control type="number" name="sessions" onChange={numberHandler} multiplier="150" />
+                    <Form.Control type="number" name="30-min Networking Sessions" onChange={numberHandler} multiplier="150" />
                 </Col>
                 <Col>
                     <Form.Label> 30-min Networking Sessions </Form.Label>
@@ -149,7 +150,7 @@ function QuoteForm(props) {
             </Form.Group>
             <Form.Group as={Row}>
                 <Col>
-                    <Form.Check type="checkbox" value="800" onChange={checkboxHandler} name="unlimited" />
+                    <Form.Check type="checkbox" value="800" onChange={checkboxHandler} name="Unlimited Sponsor Profiles and Tiers" />
                 </Col>
                 <Col>
                     <Form.Label>Unlimited Sponsor Profiles and Tiers </Form.Label>
@@ -159,7 +160,7 @@ function QuoteForm(props) {
                 </Col>
             </Form.Group>
             <Form.Group>
-                <Form.Control name="exhibit" as="select" onChange={selectHandler}>
+                <Form.Control name="Exhibits" as="select" onChange={selectHandler}>
                     <option selected disabled> --- Exhibitor Packages --- </option>
                     <option value="0">No Exhibitors</option>
                     <option value="500">Up to 10 Exhibitors ($500) </option>
@@ -167,7 +168,7 @@ function QuoteForm(props) {
                 </Form.Control>
             </Form.Group>
             <Form.Group as={Row}>
-                <Col><Form.Check type="checkbox" onChange={checkboxHandler} value="800" name="premiumFeatures" /></Col>
+                <Col><Form.Check type="checkbox" onChange={checkboxHandler} value="800" name="Premium Exhibitor features" /></Col>
                 <Col><Form.Label >Premium Exhibitor features</Form.Label></Col>
                 <Col>
                     <Form.Label>$800.00</Form.Label>
@@ -175,7 +176,7 @@ function QuoteForm(props) {
             </Form.Group>
             <Form.Group as={Row}>
                 <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="800" name="careerFairTools" />
+                    <Form.Check type="checkbox" onChange={checkboxHandler} value="800" name="Career Fair Tools" />
                 </Col>
                 <Col>
                     <Form.Label > Career Fair Tools</Form.Label>
@@ -186,7 +187,7 @@ function QuoteForm(props) {
             </Form.Group>
             <Form.Group as={Row}>
                 <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="600" name="artifact" />
+                    <Form.Check type="checkbox" onChange={checkboxHandler} value="600" name="Artifact Center" />
                 </Col>
                 <Col>
                     <Form.Label > Artifact Center</Form.Label>
@@ -197,7 +198,7 @@ function QuoteForm(props) {
             </Form.Group>
             <Form.Group as={Row}>
                 <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="200" name="url" inline />
+                    <Form.Check type="checkbox" onChange={checkboxHandler} value="200" name="Branded Event URL" inline />
                 </Col>
                 <Col>
                     <Form.Label inline> Branded Event URL </Form.Label>
@@ -208,7 +209,7 @@ function QuoteForm(props) {
             </Form.Group>
             <Form.Group as={Row}>
                 <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="300" name="manager" />
+                    <Form.Check type="checkbox" onChange={checkboxHandler} value="300" name="Session Attendance Manager/Ticket Session Mapping or Capping" />
                 </Col>
                 <Col>
                     <Form.Label > Session Attendance Manager/Ticket Session Mapping or Capping</Form.Label>
@@ -219,7 +220,7 @@ function QuoteForm(props) {
             </Form.Group>
             <Form.Group as={Row}>
                 <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="200" name="video" inline />
+                    <Form.Check type="checkbox" onChange={checkboxHandler} value="200" name="Video Access Control of Recorded Content" inline />
                 </Col>
                 <Col>
                     <Form.Label inline> Video Access Control of Recorded Content </Form.Label>
@@ -230,7 +231,7 @@ function QuoteForm(props) {
             </Form.Group>
             <Form.Group as={Row}>
                 <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="80" name="upload" inline />
+                    <Form.Check type="checkbox" onChange={checkboxHandler} value="80" name="Whova Direct Video Uploading" inline />
                 </Col>
                 <Col>
                     <Form.Label inline> Whova Direct Video Uploading</Form.Label>
@@ -241,7 +242,7 @@ function QuoteForm(props) {
             </Form.Group>
             <Form.Group as={Row}>
                 <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="500" name="unlimitedUploading" inline />
+                    <Form.Check type="checkbox" onChange={checkboxHandler} value="500" name="Document Uploading for Speakers and Admins(unlimited)" inline />
                 </Col>
                 <Col>
                     <Form.Label inline>Document Uploading for Speakers and Admins(unlimited) </Form.Label>
@@ -252,7 +253,7 @@ function QuoteForm(props) {
             </Form.Group>
             <Form.Group as={Row}>
                 <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="75" name="additional" />
+                    <Form.Check type="checkbox" onChange={checkboxHandler} value="75" name="Additional Attendees (50 more antendees)" />
                 </Col>
                 <Col>
                     <Form.Label> Additional Attendees (50 more antendees)</Form.Label>

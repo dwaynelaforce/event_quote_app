@@ -4,11 +4,11 @@ function FinalQuote(props){
         return (
             <div>
                 <h4> Your Final Estimate is: </h4>
-                <p>Your subtotal is: ${subtotal}</p>
+                <p>Your subtotal is: ${subtotal}.00</p>
                 {Object.keys(discounts).map((key,idx)=>(
-                    <p key={idx}> {key}: -${discounts[key]}</p>
+                    <p key={idx}> {key}: -${discounts[key]}.00</p>
                 ))} 
-                <h1>Your final total is: ${total}</h1>
+                <h1>Your final total is: ${total}.00</h1>
             </div>
         );
     } else return null;

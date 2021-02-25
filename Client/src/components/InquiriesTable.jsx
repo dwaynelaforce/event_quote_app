@@ -4,32 +4,7 @@ import {Table} from 'react-bootstrap';
 
 function InquiriesTable(props){
     const {setInquiriesList, inquiriesList, isLoggedIn} = props;
-    useEffect(() => {
-        axios.get('http://localhost:8000/api/all')
-            .then(res => {
-                let list = res.data;
-                for (let i = 0; i < list.length; i++) {
-                    let inquiry = list[i];
-                    if (inquiry.createdAt) {
-                        let temp_inq_date = new Date(inquiry.createdAt);
-                        temp_inq_date = temp_inq_date.toLocaleDateString();
-                        inquiry.createdAt = temp_inq_date;
-                    } else {
-                        inquiry.createdAt = "";
-                    }
-                    if (inquiry.eventStart) {
-                        let temp_start_date = new Date(inquiry.eventStart);
-                        temp_start_date = temp_start_date.toLocaleDateString();
-                        inquiry.eventStart = temp_start_date;
-                    } else {
-                        inquiry.eventStart = "";
-                    }
-                    list[i] = inquiry;
-                }
-                setInquiriesList(list);
-            })
-            .catch(err => console.log(err));
-    }, []);
+    
     
     function deleteHandler(id) {
         axios.delete('http://localhost:8000/api/delete/' + id)
@@ -52,8 +27,9 @@ function InquiriesTable(props){
                         <th>Email</th>
                         <th>Event Date</th>
                         <th>Events</th>
-                        <th>Actions</th>
                         <th>Quote</th>
+                        <th>View</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,11 +41,11 @@ function InquiriesTable(props){
                             <td>{inquiry.contactEmail}</td>
                             <td>{inquiry.eventStart}</td>
                             <td>{inquiry.numberOfEvents}</td>
-                            <td> <button onClick={()=>deleteHandler(inquiry._id)}>Delete</button></td>
                             { inquiry.masterQuote ? 
                                 <td>${inquiry.masterQuote.total}.00</td>
-                            : null }
+                                : null }
                             <td><a href={"/api/inquiry/" + inquiry._id}>View</a></td>
+                            <td> <button onClick={()=>deleteHandler(inquiry._id)}>Delete</button></td>
                         </tr>
                     )}
                 </tbody>
