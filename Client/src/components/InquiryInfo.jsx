@@ -4,12 +4,31 @@ import axios from 'axios';
 import MasterQuote from './MasterQuote.jsx'
 function InquiryInfo(props) {
     const [myInquiry, setMyInquiry] = useState(null);
-    
+    const [eventStartDate, setEventStartDate] = useState(null);
+    const [eventEndDate, setEventEndDate] = useState(null);
 
     // request the inquiry from database based on its id
     useEffect(()=>{
         axios.get('http://localhost:8000/api/inquiry/'+props.id)
-        .then(response => setMyInquiry(response.data))
+        .then(response => {
+            let inquiry = response.data;
+            if (inquiry.eventStart){
+                
+                let temp_start = new Date(inquiry.eventStart);
+                temp_start = temp_start.toDateString();
+                setEventStartDate(temp_start);
+            } else {
+                setEventStartDate("");
+            }
+            if (inquiry.eventEnd) {
+                let temp_end = new Date(inquiry.eventEnd);
+                temp_end = temp_end.toDateString();
+                setEventEndDate(temp_end);
+            } else {
+                setEventEndDate("");
+            }
+            setMyInquiry(response.data)
+        })
         .catch(response =>console.log("error getting inquiry from db: ", response))
     },[])
 
@@ -42,11 +61,11 @@ function InquiryInfo(props) {
                 </Col>
                 <Col>
                     <p>Event Start</p>
-                    <p>{myInquiry.eventStart}</p>
+                    <p>{eventStartDate}</p>
                 </Col>
                 <Col>
                     <p> Event End:</p>
-                    <p>{myInquiry.eventEnd}</p>
+                    <p>{eventEndDate}</p>
                 </Col>
             </Row>
             <MasterQuote masterQuote={myInquiry.masterQuote}/>

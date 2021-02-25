@@ -4,6 +4,32 @@ import {Table} from 'react-bootstrap';
 
 function InquiriesTable(props){
     const {setInquiriesList, inquiriesList, isLoggedIn} = props;
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/all')
+            .then(res => {
+                let list = res.data;
+                for (let i = 0; i < list.length; i++) {
+                    let inquiry = list[i];
+                    if (inquiry.createdAt) {
+                        let temp_inq_date = new Date(inquiry.createdAt);
+                        temp_inq_date = temp_inq_date.toLocaleDateString();
+                        inquiry.createdAt = temp_inq_date;
+                    } else {
+                        inquiry.createdAt = "";
+                    }
+                    if (inquiry.eventStart) {
+                        let temp_start_date = new Date(inquiry.eventStart);
+                        temp_start_date = temp_start_date.toLocaleDateString();
+                        inquiry.eventStart = temp_start_date;
+                    } else {
+                        inquiry.eventStart = "";
+                    }
+                    list[i] = inquiry;
+                }
+                setInquiriesList(list);
+            })
+            .catch(err => console.log(err));
+    }, []);
     
     function deleteHandler(id) {
         axios.delete('http://localhost:8000/api/delete/' + id)
