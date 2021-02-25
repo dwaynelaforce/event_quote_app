@@ -42,18 +42,18 @@ function CustomerInquiry(props) {
             <Form onSubmit={submitHandler}>
                 <Row>
                     <Form.Group as={Col}>
-                        <Form.Control type="text" placeholder="Contact Name" name="contactName" onChange={inquiryUpdateHandler}/>
+                        <Form.Control type="text" placeholder="Contact Name" name="contactName" onChange={inquiryUpdateHandler} required/>
                     </Form.Group>
                     <Form.Group as={Col}>
-                        <Form.Control type="text" placeholder="Organization Name" name="orgName" onChange={inquiryUpdateHandler}inline />
+                        <Form.Control type="text" placeholder="Organization Name" name="orgName" onChange={inquiryUpdateHandler}inline required/>
                     </Form.Group>
                 </Row>
                 <Row>
                     <Form.Group as={Col}>
-                        <Form.Control type="email" placeholder="Contact Email" name="contactEmail" onChange={inquiryUpdateHandler}inline />
+                        <Form.Control type="email" placeholder="Contact Email" name="contactEmail" onChange={inquiryUpdateHandler}inline required/>
                     </Form.Group>
                     <Form.Group as={Col}>
-                        <Form.Control type="text" placeholder="Organization Address" name="orgAddress" onChange={inquiryUpdateHandler}inline />
+                        <Form.Control type="text" placeholder="Organization Address" name="orgAddress" onChange={inquiryUpdateHandler}inline required/>
                     </Form.Group>
                 </Row>
                 <Row>

@@ -13,7 +13,6 @@ function InquiryInfo(props) {
         .then(response => {
             let inquiry = response.data;
             if (inquiry.eventStart){
-                
                 let temp_start = new Date(inquiry.eventStart);
                 temp_start = temp_start.toDateString();
                 setEventStartDate(temp_start);

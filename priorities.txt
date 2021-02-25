@@ -1,16 +1,13 @@
+P1 ##################
+    AWS deployment
+
 P2 ##################
-    regex dates
-    regex $ amts
     styling / UX
-    create a gmail account, that sends every quote to it
-    https://www.w3schools.com/nodejs/nodejs_email.asp
-    proper names for masterquote
+        better validations appear next to form inputs
+    node.js email https://www.w3schools.com/nodejs/nodejs_email.asp
     admin page inquiries are sorted by date (created? or event?)\
-    adming page - rename items in itimized quote
 
 P3 ##################
-    deployment, creating unqique password and url
-    validation errors appearing next to form inputs
 
 DONE ################
     
@@ -20,5 +17,9 @@ DONE ################
         masterQuote component to be child of InquiryInfo
         success page
         bug - total sometimes needs to be calculated twice to be correct
+        proper names for masterquote
+        adming page - rename items in itimized quote
+        basic validations (HTML)
+        inquiries table - dates need to look right
 
     P2 ##################

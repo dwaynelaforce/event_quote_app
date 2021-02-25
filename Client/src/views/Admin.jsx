@@ -10,15 +10,8 @@ function Admin(props) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const adminPassword = "admin"
 
-    //remove later
-    useEffect(() => {
-        axios.get('http://localhost:8000/api/all')
-            .then(res => {
-                setInquiriesList(res.data);
-                console.log(res.data);
-            })
-            .catch(err => console.log(err));
-    }, []);
+
+    
     
     function passwordHandler(e) {
         e.preventDefault();
@@ -41,7 +34,7 @@ function Admin(props) {
                     <div className="col"></div>
                 </Form.Row>
             </div>
-            <InquiriesTable inquiriesList={inquiriesList} setInquiriesList={setInquiriesList} isLoggedIn={isLoggedIn} />
+            <InquiriesTable isLoggedIn={isLoggedIn} />
         </div>
     );
 }

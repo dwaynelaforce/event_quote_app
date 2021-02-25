@@ -3,14 +3,38 @@ import axios from 'axios';
 import {Table} from 'react-bootstrap';
 
 function InquiriesTable(props){
-    const {setInquiriesList, inquiriesList, isLoggedIn} = props;
+    const {isLoggedIn} = props;
+    const [ inquiriesList, setInquiriesList] = useState([]);
     
-    
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/all')
+            .then(res => {
+                let myInquiriesList = res.data;
+                for (let i = 0; i < myInquiriesList.length; i++) {
+                    let inquiry = myInquiriesList[i];
+                    let temp_createdAt = new Date(inquiry.createdAt);
+                    temp_createdAt = temp_createdAt.toLocaleDateString()
+                    inquiry.createdAt = temp_createdAt;
+                    if (inquiry.eventStart){
+                        let temp_start = new Date(inquiry.eventStart);
+                        temp_start = temp_start.toLocaleDateString();
+                        inquiry.eventStart = temp_start;
+                    } else {
+                        inquiry.eventStart = "";
+                    }
+                    myInquiriesList[i] = inquiry;
+                }
+                setInquiriesList(myInquiriesList);
+            })
+            .catch(err => console.log(err));
+    }, []);
+
     function deleteHandler(id) {
         axios.delete('http://localhost:8000/api/delete/' + id)
         .then(setInquiriesList(inquiriesList.filter(inquiry => inquiry._id !== id)))
         .catch(err => console.log(err));
     };
+
     if (props.isLoggedIn === true) {
         if (inquiriesList.length === 0) {
             return (
