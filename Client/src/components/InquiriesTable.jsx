@@ -67,8 +67,8 @@ function InquiriesTable(props){
                             <td>{inquiry.numberOfEvents}</td>
                             { inquiry.masterQuote ? 
                                 <td>${inquiry.masterQuote.total}.00</td>
-                                : null }
-                            <td><a href={"/api/inquiry/" + inquiry._id}>View</a></td>
+                                : <td/> }
+                            <td><a href={"/inquiry/" + inquiry._id}>View</a></td>
                             <td> <button onClick={()=>deleteHandler(inquiry._id)}>Delete</button></td>
                         </tr>
                     )}

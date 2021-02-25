@@ -13,7 +13,7 @@ function App() {
       <Router>
         <CustomerInquiry path="/"/>
         <Admin path="/admin"/>
-        <InquiryInfo path="/api/inquiry/:id"/>
+        <InquiryInfo path="/inquiry/:id"/>
       </Router>
     </div>
   );

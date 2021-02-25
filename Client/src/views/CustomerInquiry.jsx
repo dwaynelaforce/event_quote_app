@@ -28,7 +28,7 @@ function CustomerInquiry(props) {
             .then(response => {
                 console.log("successfully added to db", response);
                 window.alert("Thank you for submitting your inquiry!  A Whova representative will get back to you shortly.  Your inquiry details are on the next page.");
-                navigate(`/api/inquiry/${response.data._id}`);
+                navigate(`/inquiry/${response.data._id}`);
             })
             .catch(err => console.log("there was an error adding to the db", err))
     }
