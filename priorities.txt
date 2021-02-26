@@ -1,10 +1,11 @@
 P1 ##################
-    AWS deployment
+    no bugs
+    node.js email https://www.w3schools.com/nodejs/nodejs_email.asp
+    better styling
 
 P2 ##################
     styling / UX
         better validations appear next to form inputs
-    node.js email https://www.w3schools.com/nodejs/nodejs_email.asp
     admin page inquiries are sorted by date (created? or event?)\
 
 P3 ##################
@@ -21,5 +22,6 @@ DONE ################
         adming page - rename items in itimized quote
         basic validations (HTML)
         inquiries table - dates need to look right
+        AWS deployment
 
     P2 ##################
