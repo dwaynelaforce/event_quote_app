@@ -1,7 +1,10 @@
 P1 ##################
-    no bugs
+    bugs / things to fix:
+        premium exhibitor features / passport contest $300 (only if exhibitors)
     node.js email https://www.w3schools.com/nodejs/nodejs_email.asp
     better styling
+        reword some stuff, make sure this is an unofficial quote
+        alert: Change "Whova Representative" to "Cole Dillinger"
 
 P2 ##################
     styling / UX
@@ -25,3 +28,12 @@ DONE ################
         AWS deployment
 
     P2 ##################
+
+
+### Agreement with client ###
+
+this code is IP of anindo and dwayne, licensed to client.
+product is:
+    hosted, deployed website with email alerts
+    3 months of included obligation to fix/repair/redeploy website as needed*
+        does not include adding new features 

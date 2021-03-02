@@ -27,7 +27,7 @@ function CustomerInquiry(props) {
         axios.post('http://localhost:8000/api/create', inquiry)
             .then(response => {
                 console.log("successfully added to db", response);
-                window.alert("Thank you for submitting your inquiry!  A Whova representative will get back to you shortly.  Your inquiry details are on the next page.");
+                window.alert("Thank you for submitting your inquiry!  Cole Dillinger will get back to you shortly.  Your inquiry details are on the next page.");
                 navigate(`/inquiry/${response.data._id}`);
             })
             .catch(err => console.log("there was an error adding to the db", err))

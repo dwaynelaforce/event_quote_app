@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import FinalQuote from './FinalQuote.jsx';
+import PassportContest from'./PassportContest.jsx';
 import { Form, Row, Col, Image, Button } from 'react-bootstrap';
 import axios from 'axios';
 
@@ -160,19 +161,19 @@ function QuoteForm(props) {
                 </Col>
             </Form.Group>
             <Form.Group>
-                <Form.Control name="Exhibits" as="select" onChange={selectHandler}>
-                    <option selected disabled> --- Exhibitor Packages --- </option>
-                    <option value="0">No Exhibitors</option>
+                <Form.Control name="Exhibitors" as="select" onChange={selectHandler}>
+                    <option selected value="0">No Exhibitors</option>
                     <option value="500">Up to 10 Exhibitors ($500) </option>
                     <option value="800">Unlimited Exhibitors($800) </option>
                 </Form.Control>
             </Form.Group>
             <Form.Group as={Row}>
-                <Col><Form.Check type="checkbox" onChange={checkboxHandler} value="800" name="Premium Exhibitor features" /></Col>
-                <Col><Form.Label >Premium Exhibitor features</Form.Label></Col>
+                <Col><Form.Check type="checkbox" onChange={checkboxHandler} value="300" name="Premium Exhibitor features" /></Col>
+                <Col><Form.Label >Premium Exhibitor Features / Passport Contest</Form.Label></Col>
                 <Col>
-                    <Form.Label>$800.00</Form.Label>
+                    <Form.Label>$300.00</Form.Label>
                 </Col>
+                <PassportContest quote={quote} setQuote={setQuote}/>
             </Form.Group>
             <Form.Group as={Row}>
                 <Col>
