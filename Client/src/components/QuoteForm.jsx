@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import FinalQuote from './FinalQuote.jsx';
 import PassportContest from'./PassportContest.jsx';
-import { Form, Row, Col, Image, Button } from 'react-bootstrap';
+import { Form, Row, Col, Image, Button, Container } from 'react-bootstrap';
 import axios from 'axios';
 
 function QuoteForm(props) {
@@ -108,162 +108,192 @@ function QuoteForm(props) {
         setInquiry(inquiry);
         console.log("masterQuoteHandler: inquiry is ",inquiry);
     }
+
+    function inquiryUpdateHandler(e){
+        e.preventDefault();
+        let key = e.target.name;
+        let val;
+        if (key === "numberOfEvents") {
+            val = parseInt(e.target.value)
+        } else {
+            val = e.target.value;
+        }
+        inquiry[key]= val;
+        setInquiry(inquiry);
+    }
+
     return (
 
-        <Form onSubmit={masterQuoteHandler}>
-            <Form.Label> If more than one event, fill out the rest of the form</Form.Label>
-            <Form.Group>
-                <Form.Control name="Tier" as="select" onChange={selectHandler}>
-                    <option selected> --- Choose a starting tier --- </option>
-                    <option value="1599">Tier 1 - up to 500 attendees | $1,599 </option>
-                    <option value="2399">Tier 2 - up to 1,500 attendees | $2,399</option>
-                    <option value="3899">Tier 3 - up to 3,000 attendees | $3,899</option>
-                    <option value="5399">Tier 4 - up to 5,000 attendees | $5,399</option>
-                </Form.Control>
-            </Form.Group>
-            <Form.Group as={Row}>
-                <Col>
-                    <Form.Check name="Speaker/Session Feedback" type="checkbox" value="300" onChange={checkboxHandler} inline />
-                </Col>
-                <Col>
-                    <Form.Label>Speaker/Session Feedback</Form.Label>
-                </Col>
-                <Col>
-                    <Form.Label>$300.00</Form.Label>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-                <Col>
-                    <Form.Control type="number" name="Pre/Post-Event Surveys" onChange={numberHandler} multiplier="80" />
-                </Col>
-                <Col>
-                    <Form.Label>Pre/Post-Event Surveys</Form.Label>
-                </Col>
-                <Col>
-                    <Form.Label>$80.00 each</Form.Label>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-                <Col>
-                    <Form.Control type="number" name="30-min Networking Sessions" onChange={numberHandler} multiplier="150" />
-                </Col>
-                <Col>
-                    <Form.Label> 30-min Networking Sessions </Form.Label>
-                </Col>
-                <Col>
-                    <Form.Label>$150.00 each</Form.Label>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-                <Col>
-                    <Form.Check type="checkbox" value="800" onChange={checkboxHandler} name="Unlimited Sponsor Profiles and Tiers" />
-                </Col>
-                <Col>
-                    <Form.Label>Unlimited Sponsor Profiles and Tiers </Form.Label>
-                </Col>
-                <Col>
-                    <Form.Label>$800.00</Form.Label>
-                </Col>
-            </Form.Group>
-            <Form.Group>
-                <Form.Control name="Exhibitors" as="select" onChange={selectHandler}>
-                    <option selected value="0">No Exhibitors</option>
-                    <option value="500">Up to 10 Exhibitors ($500) </option>
-                    <option value="800">Unlimited Exhibitors($800) </option>
-                </Form.Control>
-            </Form.Group>
+        <Form className="rounded"
+            style={{backgroundColor:"#184D62"}}
+            onSubmit={masterQuoteHandler}>
+            <h1 className="py-3 px-3 text-center"
+                style={{color:"#FFC107"}}>Quote Calculator</h1>
+            <Container className="py-4 px-5"
+                style={{backgroundColor:"#FAFAFA",color:"black"}}>
+                <Row>
+                    <Col sm>
+                        <Form.Group sm>
+                            <Form.Label>How many events?</Form.Label>
+                            <Form.Control type="number" name="numberOfEvents" min={1} max={100} defaultValue={1} onChange={inquiryUpdateHandler}/>
+                        </Form.Group>
+                    </Col>
+                    <Col sm>
+                        <Form.Group>
+                            <Form.Label>Choose a starting tier:</Form.Label>
+                            <Form.Control name="Tier" as="select" onChange={selectHandler}>
+                                <option value="1599">Tier 1 - up to 500 attendees | $1,599 </option>
+                                <option value="2399">Tier 2 - up to 1,500 attendees | $2,399</option>
+                                <option value="3899">Tier 3 - up to 3,000 attendees | $3,899</option>
+                                <option value="5399">Tier 4 - up to 5,000 attendees | $5,399</option>
+                            </Form.Control>
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Form.Group as={Row}>
+                    <Col>
+                        <Form.Check name="Speaker/Session Feedback" type="checkbox" value="300" onChange={checkboxHandler} inline />
+                    </Col>
+                    <Col>
+                        <Form.Label>Speaker/Session Feedback</Form.Label>
+                    </Col>
+                    <Col>
+                        <Form.Label>$300.00</Form.Label>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row}>
+                    <Col>
+                        <Form.Control type="number" name="Pre/Post-Event Surveys" onChange={numberHandler} multiplier="80" />
+                    </Col>
+                    <Col>
+                        <Form.Label>Pre/Post-Event Surveys</Form.Label>
+                    </Col>
+                    <Col>
+                        <Form.Label>$80.00 each</Form.Label>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row}>
+                    <Col>
+                        <Form.Control type="number" name="30-min Networking Sessions" onChange={numberHandler} multiplier="150" />
+                    </Col>
+                    <Col>
+                        <Form.Label> 30-min Networking Sessions </Form.Label>
+                    </Col>
+                    <Col>
+                        <Form.Label>$150.00 each</Form.Label>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row}>
+                    <Col>
+                        <Form.Check type="checkbox" value="800" onChange={checkboxHandler} name="Unlimited Sponsor Profiles and Tiers" />
+                    </Col>
+                    <Col>
+                        <Form.Label>Unlimited Sponsor Profiles and Tiers </Form.Label>
+                    </Col>
+                    <Col>
+                        <Form.Label>$800.00</Form.Label>
+                    </Col>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Control name="Exhibitors" as="select" onChange={selectHandler}>
+                        <option selected value="0">No Exhibitors</option>
+                        <option value="500">Up to 10 Exhibitors ($500) </option>
+                        <option value="800">Unlimited Exhibitors($800) </option>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group as={Row}>
+                    <PassportContest quote={quote} setQuote={setQuote} checkboxHandler={checkboxHandler} quoteUpdateHandler={quoteUpdateHandler}/>
+                </Form.Group>
+                <Form.Group as={Row}>
+                    <Col>
+                        <Form.Check type="checkbox" onChange={checkboxHandler} value="800" name="Career Fair Tools" />
+                    </Col>
+                    <Col>
+                        <Form.Label > Career Fair Tools</Form.Label>
+                    </Col>
+                    <Col>
+                        <Form.Label>$800.00</Form.Label>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row}>
+                    <Col>
+                        <Form.Check type="checkbox" onChange={checkboxHandler} value="600" name="Artifact Center" />
+                    </Col>
+                    <Col>
+                        <Form.Label > Artifact Center</Form.Label>
+                    </Col>
+                    <Col>
+                        <Form.Label>$600.00</Form.Label>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row}>
+                    <Col>
+                        <Form.Check type="checkbox" onChange={checkboxHandler} value="200" name="Branded Event URL" inline />
+                    </Col>
+                    <Col>
+                        <Form.Label inline> Branded Event URL </Form.Label>
+                    </Col>
+                    <Col>
+                        <Form.Label>$600.00</Form.Label>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row}>
+                    <Col>
+                        <Form.Check type="checkbox" onChange={checkboxHandler} value="300" name="Session Attendance Manager/Ticket Session Mapping or Capping" />
+                    </Col>
+                    <Col>
+                        <Form.Label > Session Attendance Manager/Ticket Session Mapping or Capping</Form.Label>
+                    </Col>
+                    <Col>
+                        <Form.Label>$300.00</Form.Label>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row}>
+                    <Col>
+                        <Form.Check type="checkbox" onChange={checkboxHandler} value="200" name="Video Access Control of Recorded Content" inline />
+                    </Col>
+                    <Col>
+                        <Form.Label inline> Video Access Control of Recorded Content </Form.Label>
+                    </Col>
+                    <Col>
+                        <Form.Label>$200.00</Form.Label>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row}>
+                    <Col>
+                        <Form.Check type="checkbox" onChange={checkboxHandler} value="80" name="Whova Direct Video Uploading" inline />
+                    </Col>
+                    <Col>
+                        <Form.Label inline> Whova Direct Video Uploading</Form.Label>
+                    </Col>
+                    <Col>
+                        <Form.Label>$80.00 for additional 5GB (3 GB for free)</Form.Label>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row}>
+                    <Col>
+                        <Form.Check type="checkbox" onChange={checkboxHandler} value="500" name="Document Uploading for Speakers and Admins(unlimited)" inline />
+                    </Col>
+                    <Col>
+                        <Form.Label inline>Document Uploading for Speakers and Admins(unlimited) </Form.Label>
+                    </Col>
+                    <Col>
+                        <Form.Label>$500.00</Form.Label>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row}>
+                    <Col>
+                        <Form.Check type="checkbox" onChange={checkboxHandler} value="75" name="Additional Attendees (50 more antendees)" />
+                    </Col>
+                    <Col>
+                        <Form.Label> Additional Attendees (50 more antendees)</Form.Label>
+                    </Col>
+                    <Col>
+                        <Form.Label>$75.00 </Form.Label>
+                    </Col>
+                </Form.Group>
+            </Container>
             
-            <Form.Group as={Row}>
-                <PassportContest quote={quote} setQuote={setQuote} checkboxHandler={checkboxHandler} quoteUpdateHandler={quoteUpdateHandler}/>
-            </Form.Group>
-            <Form.Group as={Row}>
-                <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="800" name="Career Fair Tools" />
-                </Col>
-                <Col>
-                    <Form.Label > Career Fair Tools</Form.Label>
-                </Col>
-                <Col>
-                    <Form.Label>$800.00</Form.Label>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-                <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="600" name="Artifact Center" />
-                </Col>
-                <Col>
-                    <Form.Label > Artifact Center</Form.Label>
-                </Col>
-                <Col>
-                    <Form.Label>$600.00</Form.Label>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-                <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="200" name="Branded Event URL" inline />
-                </Col>
-                <Col>
-                    <Form.Label inline> Branded Event URL </Form.Label>
-                </Col>
-                <Col>
-                    <Form.Label>$600.00</Form.Label>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-                <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="300" name="Session Attendance Manager/Ticket Session Mapping or Capping" />
-                </Col>
-                <Col>
-                    <Form.Label > Session Attendance Manager/Ticket Session Mapping or Capping</Form.Label>
-                </Col>
-                <Col>
-                    <Form.Label>$300.00</Form.Label>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-                <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="200" name="Video Access Control of Recorded Content" inline />
-                </Col>
-                <Col>
-                    <Form.Label inline> Video Access Control of Recorded Content </Form.Label>
-                </Col>
-                <Col>
-                    <Form.Label>$200.00</Form.Label>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-                <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="80" name="Whova Direct Video Uploading" inline />
-                </Col>
-                <Col>
-                    <Form.Label inline> Whova Direct Video Uploading</Form.Label>
-                </Col>
-                <Col>
-                    <Form.Label>$80.00 for additional 5GB (3 GB for free)</Form.Label>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-                <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="500" name="Document Uploading for Speakers and Admins(unlimited)" inline />
-                </Col>
-                <Col>
-                    <Form.Label inline>Document Uploading for Speakers and Admins(unlimited) </Form.Label>
-                </Col>
-                <Col>
-                    <Form.Label>$500.00</Form.Label>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-                <Col>
-                    <Form.Check type="checkbox" onChange={checkboxHandler} value="75" name="Additional Attendees (50 more antendees)" />
-                </Col>
-                <Col>
-                    <Form.Label> Additional Attendees (50 more antendees)</Form.Label>
-                </Col>
-                <Col>
-                    <Form.Label>$75.00 </Form.Label>
-                </Col>
-            </Form.Group>
             <h3> Subtotal: ${subtotal}.00</h3>
             <Button variant="success" onClick={finalQuoteHandler}> Calculate </Button>
             <FinalQuote total={total} subtotal={subtotal} quote={quote} discounts={discounts} />

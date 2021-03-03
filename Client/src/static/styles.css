@@ -1,12 +1,17 @@
 * {
     margin: 0;
     padding: 0;
-    background-color: #2DACEE;
-    color: white;
 }
 .App {
     margin-top: 2%;
     margin-bottom: 2%;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+body {
+    color: white;
+    background-color: #2DACEE;
+    /* background-color: #184D62; */
+    
 }
