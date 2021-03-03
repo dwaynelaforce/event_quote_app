@@ -131,7 +131,7 @@ function QuoteForm(props) {
                 style={{color:"#FFC107"}}>Quote Calculator</h1>
             <Container className="py-4 px-5"
                 style={{backgroundColor:"#FAFAFA",color:"black"}}>
-                <Row>
+                <Row className>
                     <Col sm>
                         <Form.Group sm>
                             <Form.Label>How many events?</Form.Label>

@@ -38,22 +38,20 @@ function CustomerInquiry(props) {
     }
 
     return (
-        <Container fluid="sm">
-            <Row style={{display:"flex", alignItems:"bottom"}}>
+        <Container>
+            <Row>
                 <Col md className="mb-4">
                     <Image src={whovaLogo}
-                        block
                         style={{height:"100px", width:"300px"}}/>
                 </Col>
                 <Col md className="mb-4">
                     <Row>
-                        <Col sm="auto" className="mb-2">
+                        <Col className="mb-2">
                             <Image src={headshot} 
-                                block roundedCircle thumbnail 
-                                className="mx-auto"
+                                roundedCircle thumbnail 
                                 style={{width:"100px", height:"100px"}}/>
                         </Col>
-                        <Col>
+                        <Col className="mb-2">
                             <h4>Cole Dillinger</h4>
                             <h5>Principal Account Executive</h5>
                             <p className="mb-0">cole.dillinger@whova.com</p>
