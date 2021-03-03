@@ -141,7 +141,9 @@ function QuoteForm(props) {
                     <Col sm>
                         <Form.Group>
                             <Form.Label>Choose a starting tier:</Form.Label>
-                            <Form.Control name="Tier" as="select" onChange={selectHandler}>
+                            <Form.Control name="Tier" as="select" defaultValue="1599"
+                            onChange={selectHandler}>
+                                <option selected disabled> --- Select from list ---</option>
                                 <option value="1599">Tier 1 - up to 500 attendees | $1,599 </option>
                                 <option value="2399">Tier 2 - up to 1,500 attendees | $2,399</option>
                                 <option value="3899">Tier 3 - up to 3,000 attendees | $3,899</option>
