@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import FinalQuote from './FinalQuote.jsx';
 import PassportContest from'./PassportContest.jsx';
-import { Form, Row, Col, Image, Button, Container } from 'react-bootstrap';
+import { Form, FormControl, Row, Col, Button, Container, InputGroup } from 'react-bootstrap';
 import axios from 'axios';
 
 function QuoteForm(props) {
@@ -123,12 +123,37 @@ function QuoteForm(props) {
     }
 
     return (
-
-        <Form className="rounded"
+        <Form className="rounded px-3"
             style={{backgroundColor:"#184D62"}}
             onSubmit={masterQuoteHandler}>
-            <h1 className="py-3 px-3 text-center"
-                style={{color:"#FFC107"}}>Quote Calculator</h1>
+            <Container className="py-3 px-3">
+                <Row style={{height: "100px"}} xl={12}>
+                    <Col xl={4}>
+                        <h1><b><i>QuoteCalculator</i></b></h1> 
+                        <p className="text-right">2021 (TM)</p>
+                    </Col>
+                    <Col>
+                        <Row>
+
+                        </Row>
+                    </Col>
+                </Row>
+                <Row>
+                    <InputGroup>
+                        <InputGroup.Prepend>
+                            <InputGroup.Text 
+                                style={{backgroundColor:"#FFC107", color:"#184D62"}}>
+                                <b>Subtotal: </b>
+                            </InputGroup.Text>
+                            <InputGroup.Text>$ </InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <FormControl type="number" placeholder={subtotal} readOnly/>
+                        <InputGroup.Append>
+                            <InputGroup.Text>.00</InputGroup.Text>
+                        </InputGroup.Append>
+                    </InputGroup>
+                </Row>
+            </Container>
             <Container className="py-4 px-5"
                 style={{backgroundColor:"#FAFAFA",color:"black"}}>
                 <Row className>
@@ -141,8 +166,7 @@ function QuoteForm(props) {
                     <Col sm>
                         <Form.Group>
                             <Form.Label>Choose a starting tier:</Form.Label>
-                            <Form.Control name="Tier" as="select" defaultValue="1599"
-                            onChange={selectHandler}>
+                            <Form.Control name="Tier" as="select" onChange={selectHandler} required>
                                 <option selected disabled> --- Select from list ---</option>
                                 <option value="1599">Tier 1 - up to 500 attendees | $1,599 </option>
                                 <option value="2399">Tier 2 - up to 1,500 attendees | $2,399</option>
@@ -295,7 +319,6 @@ function QuoteForm(props) {
                     </Col>
                 </Form.Group>
             </Container>
-            
             <h3> Subtotal: ${subtotal}.00</h3>
             <Button variant="success" onClick={finalQuoteHandler}> Calculate </Button>
             <FinalQuote total={total} subtotal={subtotal} quote={quote} discounts={discounts} />

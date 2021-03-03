@@ -39,22 +39,20 @@ function CustomerInquiry(props) {
 
     return (
         <Container>
-            <Row xs={12} className="pl-3">
+            <Row xs={12} className="p-3">
                 <Col lg={{offset: 0}}
                     md={{span: 9, offset: 3}}
                     sm={{span: 10, offset: 2}}
-                    xs={{span: 11, offset: 1}}
-                    className="mb-4">
-                    <Row>
-                        <Image src={whovaLogo}
-                            style={{height:"105px", width:"315px"}}/>
-                    </Row>
+                    xs={{span: 12, offset: 0}}
+                    className=" mb-2">
+                    <Image src={whovaLogo}
+                        style={{height:"105px", width:"315px"}}/>
                 </Col>
                 <Col lg={{offset: 0}} 
                     md={{span: 9, offset: 3}} 
                     sm={{span: 10, offset: 2}}
-                    xs
-                    className="mb-4">
+                    xs={{span: 12, offset: 0}}
+                    className="pl-4 mb-2">
                     <Row>
                         <Image src={headshot}
                             className="mt-1"
@@ -148,7 +146,7 @@ function CustomerInquiry(props) {
                     
                 </Container>
             </Form>
-            <Col style={{maxHeight:"400px", backgroundImage:`url(${calcBgImg}`}} className="p-5">
+            <Col style={{maxHeight:"400px"}} className="p-5">
                 <Row fluid>
                     <Image src={downArrow} fluid className="mx-auto my-2"></Image>
                 </Row>
