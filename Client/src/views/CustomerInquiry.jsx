@@ -33,12 +33,16 @@ function CustomerInquiry(props) {
     }
 
     return (
-        <Container fluid>
+        <Container fluid="sm">
             <Row>
-                <Image style={{margin: "0 auto", width: "50%", maxWidth: "500px"}} src="https://whova.com/wp-content/uploads/2015/11/whova-logo-white.png" fluid />
+                <Image
+                    className="mx-auto w-50"
+                    src="https://whova.com/wp-content/uploads/2015/11/whova-logo-white.png"
+                />
             </Row>
             <h1 className="my-3 text-center">Customer Inquiry</h1>
-            <Form onSubmit={submitHandler}>
+            <Form>
+                <h3 className="my-3 text-center">Tell us about yourself,</h3>
                 <Row>
                     <Form.Group as={Col} sm>
                         <Form.Control type="text" placeholder="Contact Name" name="contactName" onChange={inquiryUpdateHandler} required/>
@@ -66,15 +70,16 @@ function CustomerInquiry(props) {
                     </Form.Group>
                 </Row>
                 <Row>
-                    <Form.Group as={Col} sm>
-                        <Form.Label>Number of Events</Form.Label>
-                        <Form.Control type="number" name="numberOfEvents" min={1} max={100} defaultValue={1} onChange={inquiryUpdateHandler}/>
-                    </Form.Group>
-                    <Col sm>
-                        <Form.Label> </Form.Label>
-                        <Button variant="success" type="submit" block> Request Quote for Single Event</Button>
+                    <Col/>
+                    <Col>
+                        <Button variant="success" onClick={submitHandler}> Request Quote for Single Event</Button>
                     </Col>
+                    <Col/>
                 </Row>
+                <Form.Group as={Col} sm>
+                    <Form.Label>Number of Events</Form.Label>
+                    <Form.Control type="number" name="numberOfEvents" min={1} max={100} defaultValue={1} onChange={inquiryUpdateHandler}/>
+                </Form.Group>
             </Form>
             <QuoteForm inquiry={inquiry} setInquiry={setInquiry}/>
             <Button variant="success" onClick={submitHandler}>Send to Whova</Button>

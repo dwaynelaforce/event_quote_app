@@ -1,6 +1,6 @@
 function MasterQuote(props){
     const { masterQuote } = props;
-    if (masterQuote === null) {
+    if (!masterQuote) {
         console.log("no masterQuote found in inquiry");
         return null;
     };
