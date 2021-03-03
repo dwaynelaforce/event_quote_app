@@ -39,23 +39,43 @@ function CustomerInquiry(props) {
 
     return (
         <Container>
-            <Row>
-                <Col md className="mb-4">
-                    <Image src={whovaLogo}
-                        style={{height:"100px", width:"300px"}}/>
-                </Col>
-                <Col md className="mb-4">
+            <Row xs={12} className="pl-3">
+                <Col lg={{offset: 0}}
+                    md={{span: 9, offset: 3}}
+                    sm={{span: 10, offset: 2}}
+                    xs={{span: 11, offset: 1}}
+                    className="mb-4">
                     <Row>
-                        <Col className="mb-2">
-                            <Image src={headshot} 
-                                roundedCircle thumbnail 
-                                style={{width:"100px", height:"100px"}}/>
-                        </Col>
-                        <Col className="mb-2">
-                            <h4>Cole Dillinger</h4>
-                            <h5>Principal Account Executive</h5>
-                            <p className="mb-0">cole.dillinger@whova.com</p>
-                            <p className="mb-0">831-238-0076</p>
+                        <Image src={whovaLogo}
+                            style={{height:"105px", width:"315px"}}/>
+                    </Row>
+                </Col>
+                <Col lg={{offset: 0}} 
+                    md={{span: 9, offset: 3}} 
+                    sm={{span: 10, offset: 2}}
+                    xs
+                    className="mb-4">
+                    <Row>
+                        <Image src={headshot}
+                            className="mt-1"
+                            roundedCircle thumbnail
+                            style={{width:"100px", height:"100px"}}/>
+                        <Col
+                            className="mb-2">
+                            <h5>Cole Dillinger</h5>
+                            <h6>Principal Account Executive</h6>
+                            <p className="mb-0">
+                                <a href="mailto:cole.dillinger@whova.com"
+                                    style={{color:"white"}}>
+                                    ✉ cole.dillinger@whova.com
+                                </a>
+                            </p>
+                            <p className="mb-0">
+                                <a href="tel:831-238-0076"
+                                    style={{color:"white"}}>
+                                    ☏ 831-238-0076
+                                </a>
+                            </p>
                         </Col>
                     </Row>
                 </Col>
