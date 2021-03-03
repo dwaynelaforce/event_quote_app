@@ -6,6 +6,7 @@ function MasterQuote(props){
     };
     return(
         <div>
+            <h4 style={{color:"red"}}> ** This is an unofficial quote. This is an estimate. This information has been sent to  <a href="mailto:cole.dillinger@whova.com">cole.dillinger@whova.com</a> who will get back to you for an official quote</h4>
             <h2 style ={{color:"lightGreen"}}>Subtotal: ${masterQuote.subtotal}.00</h2>
             <h3>Discounts:</h3>
             <ul>

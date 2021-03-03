@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import {Container, Table, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
-import MasterQuote from './MasterQuote.jsx'
+import MasterQuote from '../components/MasterQuote.jsx'
 function InquiryInfo(props) {
     const [myInquiry, setMyInquiry] = useState(null);
     const [eventStartDate, setEventStartDate] = useState(null);

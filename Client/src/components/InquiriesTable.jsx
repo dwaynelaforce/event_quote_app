@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import {Table} from 'react-bootstrap';
+import {Table, Button} from 'react-bootstrap';
 
 function InquiriesTable(props){
     const {isLoggedIn} = props;
@@ -42,7 +42,7 @@ function InquiriesTable(props){
             );
         };
         return (
-            <Table>
+            <Table hover variant="dark">
                 <thead>
                     <tr>
                         <th>Date</th>
@@ -69,7 +69,9 @@ function InquiriesTable(props){
                                 <td>${inquiry.masterQuote.total}.00</td>
                                 : <td/> }
                             <td><a href={"/inquiry/" + inquiry._id}>View</a></td>
-                            <td> <button onClick={()=>deleteHandler(inquiry._id)}>Delete</button></td>
+                            <td>
+                                <button onClick={()=>deleteHandler(inquiry._id)}>Delete</button>
+                            </td>
                         </tr>
                     )}
                 </tbody>

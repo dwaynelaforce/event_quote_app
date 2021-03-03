@@ -5,7 +5,7 @@ import {Router} from '@reach/router';
 // view imports
 import Admin from './views/Admin.jsx';
 import CustomerInquiry from './views/CustomerInquiry.jsx';
-import InquiryInfo from './components/InquiryInfo.jsx';
+import InquiryInfo from './views/InquiryInfo.jsx';
 
 function App() {
   return (

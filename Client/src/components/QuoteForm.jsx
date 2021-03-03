@@ -14,20 +14,24 @@ function QuoteForm(props) {
     const { inquiry, setInquiry } = props;
 
     function quoteUpdateHandler(key, val) {
+        if (key === "Exhibitors" || val === 0) {
+            delete quote["Premium Exhibitor Features"];
+        }
         quote[key] = val;
         let sum = 0;
         for (let key in quote) {
             sum += quote[key];
         }
         setSubtotal(sum);
+        console.log("hello from quoteUpdateHandler");
     }
-
+    
     function selectHandler(e) {
         let key = e.target.name;
         let val = parseInt(e.target.value);
         quoteUpdateHandler(key, val);
     }
-
+    
     function checkboxHandler(e) {
         let key = e.target.name;
         let val;
@@ -37,6 +41,7 @@ function QuoteForm(props) {
             val = parseInt(e.target.value);
         }
         quoteUpdateHandler(key, val);
+        console.log("hello from checkboxHandler");
     }
 
     function numberHandler(e) {
@@ -167,13 +172,9 @@ function QuoteForm(props) {
                     <option value="800">Unlimited Exhibitors($800) </option>
                 </Form.Control>
             </Form.Group>
+            
             <Form.Group as={Row}>
-                <Col><Form.Check type="checkbox" onChange={checkboxHandler} value="300" name="Premium Exhibitor features" /></Col>
-                <Col><Form.Label >Premium Exhibitor Features / Passport Contest</Form.Label></Col>
-                <Col>
-                    <Form.Label>$300.00</Form.Label>
-                </Col>
-                <PassportContest quote={quote} setQuote={setQuote}/>
+                <PassportContest quote={quote} setQuote={setQuote} checkboxHandler={checkboxHandler} quoteUpdateHandler={quoteUpdateHandler}/>
             </Form.Group>
             <Form.Group as={Row}>
                 <Col>

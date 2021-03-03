@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import FinalaQuote from '../components/FinalQuote.jsx';
 import QuoteForm from '../components/QuoteForm.jsx';
 import { Container, Form, Row, Col, Image, Button } from 'react-bootstrap';
 import axios from 'axios';
@@ -24,10 +23,10 @@ function CustomerInquiry(props) {
     function submitHandler(e) {
         e.preventDefault();
         console.log("submitHandler: inquiry is ", inquiry);
+
         axios.post('http://localhost:8000/api/create', inquiry)
-            .then(response => {
-                console.log("successfully added to db", response);
-                window.alert("Thank you for submitting your inquiry!  Cole Dillinger will get back to you shortly.  Your inquiry details are on the next page.");
+            .then(response => {                console.log("successfully added to db", response);
+                window.alert("Thank you for submitting your inquiry! Cole Dillinger will get back to you shortly.  Your inquiry details are on the next page.");
                 navigate(`/inquiry/${response.data._id}`);
             })
             .catch(err => console.log("there was an error adding to the db", err))
@@ -41,38 +40,39 @@ function CustomerInquiry(props) {
             <h1 className="my-3 text-center">Customer Inquiry</h1>
             <Form onSubmit={submitHandler}>
                 <Row>
-                    <Form.Group as={Col}>
+                    <Form.Group as={Col} sm>
                         <Form.Control type="text" placeholder="Contact Name" name="contactName" onChange={inquiryUpdateHandler} required/>
                     </Form.Group>
-                    <Form.Group as={Col}>
-                        <Form.Control type="text" placeholder="Organization Name" name="orgName" onChange={inquiryUpdateHandler}inline required/>
+                    <Form.Group as={Col} sm>
+                        <Form.Control type="text" placeholder="Organization Name" name="orgName" onChange={inquiryUpdateHandler} required/>
                     </Form.Group>
                 </Row>
                 <Row>
-                    <Form.Group as={Col}>
-                        <Form.Control type="email" placeholder="Contact Email" name="contactEmail" onChange={inquiryUpdateHandler}inline required/>
+                    <Form.Group as={Col} sm>
+                        <Form.Control type="email" placeholder="Contact Email" name="contactEmail" onChange={inquiryUpdateHandler} required/>
                     </Form.Group>
-                    <Form.Group as={Col}>
-                        <Form.Control type="text" placeholder="Organization Address" name="orgAddress" onChange={inquiryUpdateHandler}inline required/>
+                    <Form.Group as={Col} sm>
+                        <Form.Control type="text" placeholder="Organization Address" name="orgAddress" onChange={inquiryUpdateHandler} required/>
                     </Form.Group>
                 </Row>
                 <Row>
-                    <Form.Group as={Col}>
+                    <Form.Group as={Col} sm>
                         <Form.Label> Event Start Date</Form.Label>
                         <Form.Control type="date" name="eventStart" onChange={inquiryUpdateHandler}/>
                     </Form.Group>
-                    <Form.Group as={Col}>
+                    <Form.Group as={Col} sm>
                         <Form.Label> Event End Date</Form.Label>
                         <Form.Control type="date" name="eventEnd" onChange={inquiryUpdateHandler}/>
                     </Form.Group>
                 </Row>
                 <Row>
-                    <Form.Group as={Col}>
+                    <Form.Group as={Col} sm>
                         <Form.Label>Number of Events</Form.Label>
                         <Form.Control type="number" name="numberOfEvents" min={1} max={100} defaultValue={1} onChange={inquiryUpdateHandler}/>
                     </Form.Group>
-                    <Col>
-                        <Button variant="success" type="submit"> Request Quote for Single Event</Button>
+                    <Col sm>
+                        <Form.Label> </Form.Label>
+                        <Button variant="success" type="submit" block> Request Quote for Single Event</Button>
                     </Col>
                 </Row>
             </Form>

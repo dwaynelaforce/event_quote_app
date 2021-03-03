@@ -1,10 +1,8 @@
 P1 ##################
-    bugs / things to fix:
-        premium exhibitor features / passport contest $300 (only if exhibitors)
-    node.js email https://www.w3schools.com/nodejs/nodejs_email.asp
     better styling
-        reword some stuff, make sure this is an unofficial quote
-        alert: Change "Whova Representative" to "Cole Dillinger"
+        inquiryInfo should look more like a paper receipt or PDF or something
+        CustomerInquiry - move quote area further down for user to scroll
+        QuoteForm - checkboxes look like shite
 
 P2 ##################
     styling / UX
@@ -14,8 +12,8 @@ P2 ##################
 P3 ##################
 
 DONE ################
-    
     P1 ##################
+    node.js email https://www.w3schools.com/nodejs/nodejs_email.asp
         get add ons to save to db
         add a view button in admin 
         masterQuote component to be child of InquiryInfo
@@ -26,9 +24,17 @@ DONE ################
         basic validations (HTML)
         inquiries table - dates need to look right
         AWS deployment
-
+        bugs / things to fix:
+            premium exhibitor features / passport contest $300 (only if exhibitors)
+        alert: Change "Whova Representative" to "Cole Dillinger"
+        bug - passport charge not removed from quote if exhibitrs is changed to 0
+            subtotal in finalQUote not updating when exhibitors removed
+            
     P2 ##################
 
+******BEFORE DEPLOYMENT****
+Change to address to autoEmail.js
+Change admin password
 
 ### Agreement with client ###
 

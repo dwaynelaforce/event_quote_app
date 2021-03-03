@@ -1,8 +1,15 @@
-const {Inquiry} = require('./model.js')
+const {Inquiry} = require('./model.js');
+const nodemailer = require('nodemailer');
+
 module.exports.createInquiry = (request, response)=>{
     const{orgName,orgAddress,contactName,contactEmail,eventStart,eventEnd,numberOfEvents,masterQuote} = request.body;
     Inquiry.create({orgName,orgAddress,contactName,contactEmail,eventStart,eventEnd,numberOfEvents, masterQuote})
-        .then(quote => response.json(quote))
+        .then(
+            quote => {
+                response.json(quote);
+                require('./autoEmail.js');
+            }
+        )
         .catch(err => response.status(400).json(err));
 }
 module.exports.findAll = (request, response)=>{
