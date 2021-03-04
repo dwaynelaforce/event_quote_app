@@ -36,7 +36,8 @@ function InquiryInfo(props) {
 
     // here we render myInquiry's data
     return (
-        <Container>
+        <Container className="py-3 px-3"
+            style={{backgroundColor:"#184D62", color:"white", borderRadius:"rounded"}}>
             <Row>
                 <Col>
                     <p><b>{myInquiry.orgName}</b></p>

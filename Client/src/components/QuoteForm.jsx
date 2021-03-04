@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import FinalQuote from './FinalQuote.jsx';
 import PassportContest from'./PassportContest.jsx';
-import { Form, FormControl, Row, Col, Button, Container, InputGroup } from 'react-bootstrap';
+import { Form, FormControl, Row, Col, Button, Container, InputGroup, Image } from 'react-bootstrap';
 import axios from 'axios';
+import solarPanel from '../static/panel.png';
 
 function QuoteForm(props) {
     const [quote, setQuote] = useState({});
@@ -123,22 +124,25 @@ function QuoteForm(props) {
     }
 
     return (
-        <Form className="rounded px-3"
+        <Form className="rounded p-3"
             style={{backgroundColor:"#184D62"}}
             onSubmit={masterQuoteHandler}>
-            <Container className="py-3 px-3">
-                <Row style={{height: "100px"}} xl={12}>
-                    <Col xl={4}>
-                        <h1><b><i>QuoteCalculator</i></b></h1> 
-                        <p className="text-right">2021 (TM)</p>
-                    </Col>
+            <Container 
+                className="px-3 pb-3 mb-3 rounded"
+                style={{backgroundColor:"#6A7474",border:"5px solid lightGray"}}>
+                <Row className="py-4 px-5">
                     <Col>
-                        <Row>
-
-                        </Row>
+                        <h1><b><i>QuoteCalculator</i></b></h1> 
+                        <p>Version beta 0.7.1</p>
                     </Col>
+                    <Row>
+                        <Image as={Col} src={solarPanel}style={{height:"125px"}}/>
+                        <Image as={Col} src={solarPanel}style={{height:"125px"}}/>
+                        <Image as={Col} src={solarPanel}style={{height:"125px"}}/>
+                        <Image as={Col} src={solarPanel}style={{height:"125px"}}/>
+                    </Row>
                 </Row>
-                <Row>
+                <Row className="px-5">
                     <InputGroup>
                         <InputGroup.Prepend>
                             <InputGroup.Text 
@@ -147,7 +151,7 @@ function QuoteForm(props) {
                             </InputGroup.Text>
                             <InputGroup.Text>$ </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <FormControl type="number" placeholder={subtotal} readOnly/>
+                        <FormControl className="text-center" type="number" value={subtotal} readOnly/>
                         <InputGroup.Append>
                             <InputGroup.Text>.00</InputGroup.Text>
                         </InputGroup.Append>

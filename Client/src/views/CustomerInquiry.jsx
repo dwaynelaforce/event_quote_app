@@ -7,7 +7,6 @@ import {navigate} from '@reach/router';
 import downArrow from "../static/down_arrow.png";
 import headshot from "../static/headshot.jpg";
 import whovaLogo from "../static/whova-logo-white.png";
-import calcBgImg from "../static/calc_bg.png"
 
 function CustomerInquiry(props) {
     const [inquiry, setInquiry] = useState({numberOfEvents:1, masterQuote:null});
