@@ -4,11 +4,14 @@ P1 ##################
 
 
 P2 ##################
-    styling / UX
-        validation on FinalQuote submit button if contact info on CustomerInquiry missing
-        animations / fade in/out
-    admin page inquiries are sorted by date (created? or event?)
+    validation on FinalQuote submit button if contact info on CustomerInquiry missing
     node emails have content from inquiry
+    quote object restructure so number items have their value and cost, not just cost
+
+P3 ##################
+    admin page inquiries are sorted by date (created? or event?)
+    animations / fade in/out
+
 
 DONE ################
     P1 ##################

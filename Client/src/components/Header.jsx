@@ -4,7 +4,8 @@ import whovaLogo from "../static/whova-logo-white.png";
 
 function Header () {
     return (
-        <Row xs={12} className="p-3">
+        <Row xs={12} className="p-3"
+        style={{color:'white'}}>
             <Col lg={{offset: 0}}
                 md={{span: 9, offset: 3}}
                 sm={{span: 10, offset: 2}}

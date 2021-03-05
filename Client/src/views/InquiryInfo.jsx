@@ -37,40 +37,73 @@ function InquiryInfo(props) {
 
     // here we render myInquiry's data
     return (
-        <>
-        <Container>
-        <Header/>
-        </Container>
-        <Container className="py-3 px-3"
-            style={{backgroundColor:"#184D62", borderRadius:"10px", textAlign:"center"}}>
-                <h1 style={{color:"#F9C10A"}}> Inquiry Information</h1>
-            <Container className="py-3 px-3" style={{backgroundColor:"#FAFAFA", color:"black"}}>
-            <Table striped bordered hover variant="secondary">
-                <tbody>
-                    <tr>
-                        <td><b>{myInquiry.orgName}</b></td>
-                        <td>{myInquiry.orgAddress} </td>
-                    </tr>
-                    <tr>
-                        <td> {myInquiry.contactName}</td>
-                        <td> <a href={"mailto:" + myInquiry.contactEmail}>{myInquiry.contactEmail}</a></td>
-                    </tr>
-                    <tr>
-                        <td> Number of Events</td>
-                        <td>{myInquiry.numberOfEvents}</td>
-                    </tr>
-                    <tr>
-                        <td>Event Start: {eventStartDate}</td>
-                        <td>Event End: {eventEndDate} </td>
-                    </tr>
-                </tbody>
-            </Table>
+        <Container style={{color:"#184D62"}}>
+            <Header/>
+            {/* dark blue container */}
+            <Container className="py-3 px-0 rounded"
+                style={{backgroundColor:"#184D62"}}>
+                {/* top of dark blue container */}
+                <Container style={{color:"#F9C10A"}}>
+                    <h3>Quote Inquiry</h3>
+                    <p>Inquiry ID#: {myInquiry._id}</p>
+                </Container>
+                {/* offwhite document container */}
+                <Container className="py-4 px-5" 
+                    style={{backgroundColor:"#FAFAFA"}}>
+                    <Row>
+                        <Col md>
+                            <h1 className="display-3">{myInquiry.contactName}</h1>
+                        </Col>
+                        <Col md>
+                            <h3>{myInquiry.orgName}</h3>
+                            <h6 classname="px-5">
+                                <a href="">{myInquiry.contactEmail}</a>
+                            </h6>
+                            <h6>{myInquiry.orgAddress}</h6>
+                        </Col>
+                    </Row>
+                    <hr/>
+                    <Row>
+                        <Col>
+                            <h5>
+                                Next Event: 
+                            </h5>
+                            <h6>
+                                <mark>{eventStartDate}</mark> 
+                                <span> to </span>
+                                <mark>{eventEndDate}</mark>
+                            </h6>
+                        </Col>
+                        <Col>
+                            {myInquiry.numberOfEvents} events
+                        </Col>
+                    </Row>
+                    <Table striped bordered hover variant="secondary">
+                        <tbody>
+                            <tr>
+                                <td><b>{myInquiry.orgName}</b></td>
+                                <td>{myInquiry.orgAddress} </td>
+                            </tr>
+                            <tr>
+                                <td> {myInquiry.contactName}</td>
+                                <td> <a href={"mailto:" + myInquiry.contactEmail}>{myInquiry.contactEmail}</a></td>
+                            </tr>
+                            <tr>
+                                <td> Number of Events</td>
+                                <td>{myInquiry.numberOfEvents}</td>
+                            </tr>
+                            <tr>
+                                <td>Event Start: {eventStartDate}</td>
+                                <td>Event End: {eventEndDate} </td>
+                            </tr>
+                        </tbody>
+                    </Table>
+                </Container>
+                
+                <MasterQuote masterQuote={myInquiry.masterQuote}/>
+                <h1 style={{color:"#F9C10A"}}> Thank You For Choosing Whova!</h1>
             </Container>
-            
-            <MasterQuote masterQuote={myInquiry.masterQuote}/>
-            <h1 style={{color:"#F9C10A"}}> Thank You For Choosing Whova!</h1>
         </Container>
-        </>
     );
 }
 export default InquiryInfo;

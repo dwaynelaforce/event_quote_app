@@ -40,8 +40,8 @@ function FinalQuote(props){
                     <small>*This is not an official quote or offer.  We'll double check this quote for accuracy and get back to you to discuss your needs in fuller detail.</small>
                 </p>
                 <hr/>
-                <Container>
-                    <h1 className="my-4">Last thing, click ... </h1>
+                <Container style={{maxWidth:"500px"}}>
+                    <h1 className="my-4">Last thing, please click ... </h1>
                     <Button size="lg" variant="warning"
                         className="px-4 py-2 mb-3"
                         onClick={submitHandler}>
@@ -51,8 +51,10 @@ function FinalQuote(props){
                         </strong>
                     </Button>
                     <h5> 
-                        ...to send us a copy of this quote along with your info 
-                        so we can get back to you! 
+                        ... to send us this inquiry for review and approval.
+                    </h5>
+                    <h5>
+                        We'll get back to you as soon as possible!
                     </h5>
                 </Container>
             </Container>
