@@ -64,21 +64,28 @@ function InquiryInfo(props) {
                     </Row>
                     <hr/>
                     <Row>
-                        <Col>
-                            <h5>
-                                Next Event: 
-                            </h5>
-                            <h6>
-                                <mark>{eventStartDate}</mark> 
-                                <span> to </span>
-                                <mark>{eventEndDate}</mark>
-                            </h6>
+                        <Col md>
+                            {eventStartDate ?
+                                <span className="h5">
+                                    Next Event: <mark> {eventStartDate} </mark>
+                                </span>
+                                : 
+                                <span>No event dates</span>
+                            }
+                            {eventStartDate && eventEndDate ?
+                                <span>
+                                    to
+                                    <mark> {eventEndDate}</mark>
+                                </span>
+                                : null}
                         </Col>
-                        <Col>
-                            {myInquiry.numberOfEvents} events
+                        <Col md>
+                            <h5>
+                                <mark>{myInquiry.numberOfEvents} </mark>
+                                events requested</h5>
                         </Col>
                     </Row>
-                    <Table striped bordered hover variant="secondary">
+                    {/* <Table striped bordered hover variant="secondary">
                         <tbody>
                             <tr>
                                 <td><b>{myInquiry.orgName}</b></td>
@@ -97,9 +104,8 @@ function InquiryInfo(props) {
                                 <td>Event End: {eventEndDate} </td>
                             </tr>
                         </tbody>
-                    </Table>
+                    </Table> */}
                 </Container>
-                
                 <MasterQuote masterQuote={myInquiry.masterQuote}/>
                 <h1 style={{color:"#F9C10A"}}> Thank You For Choosing Whova!</h1>
             </Container>
