@@ -91,7 +91,7 @@ function CustomerInquiry(props) {
                     <h4 className="text-center mt-2 mb-4">Need a quote for a 
                         <span style={{color:"#2DACEE"}}> single </span>
                     event?</h4>
-                    <p className="text-center mt-2 mb-4">Just hit submit and I'll get back to you to discuss your needs.</p>
+                    <p className="text-center mt-2 mb-4">Just hit submit and we'll get back to you to discuss your needs.</p>
                     <Row>
                         <Button type="submit" variant="warning" className="mx-auto" size="lg">
                             <b style={{color:"white"}}>Submit</b>

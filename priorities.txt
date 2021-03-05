@@ -1,34 +1,39 @@
 P1 ##################
-    better styling
-        inquiryInfo should look more like a paper receipt or PDF or something
-        CustomerInquiry - move quote area further down for user to scroll
-        QuoteForm - checkboxes look like shite
+    styling
+        InquiryInfo minor tweaks
+
 
 P2 ##################
     styling / UX
-        better validations appear next to form inputs
-    admin page inquiries are sorted by date (created? or event?)\
-
-P3 ##################
+        validation on FinalQuote submit button if contact info on CustomerInquiry missing
+        animations / fade in/out
+    admin page inquiries are sorted by date (created? or event?)
+    node emails have content from inquiry
 
 DONE ################
     P1 ##################
-    node.js email https://www.w3schools.com/nodejs/nodejs_email.asp
+        node.js email https://www.w3schools.com/nodejs/nodejs_email.asp
         get add ons to save to db
         add a view button in admin 
         masterQuote component to be child of InquiryInfo
         success page
-        bug - total sometimes needs to be calculated twice to be correct
         proper names for masterquote
         adming page - rename items in itimized quote
         basic validations (HTML)
         inquiries table - dates need to look right
         AWS deployment
         bugs / things to fix:
-            premium exhibitor features / passport contest $300 (only if exhibitors)
         alert: Change "Whova Representative" to "Cole Dillinger"
-        bug - passport charge not removed from quote if exhibitrs is changed to 0
+        styling
+            inquiryInfo should look more like a paper receipt or PDF or something
+            CustomerInquiry - move quote area further down for user to scroll
+            QuoteForm - checkboxes look like shite
+        bugs
+            total sometimes needs to be calculated twice to be correct
+            premium exhibitor features / passport contest $300 (only if exhibitors)
             subtotal in finalQUote not updating when exhibitors removed
+            higher discounts still appear on FinalQuote if user had higher subtotal
+            passport charge not removed from quote if exhibitrs is changed to 0
             
     P2 ##################
 

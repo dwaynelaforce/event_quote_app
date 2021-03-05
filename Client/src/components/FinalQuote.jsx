@@ -23,9 +23,9 @@ function FinalQuote(props){
                                 <td className="text-right">${subtotal}.00</td>
                             </tr>
                             {Object.keys(discounts).map((key,idx)=>(
-                                <tr key={idx} className="text-right" style={{color:"#2DACEE"}}>
+                                <tr key={idx}  style={{color:"#2DACEE"}}>
                                     <td >{key}</td>
-                                    <td >- ${discounts[key]}.00</td>
+                                    <td className="text-right">- ${discounts[key]}.00</td>
                                 </tr>
                             ))} 
                             <tr>

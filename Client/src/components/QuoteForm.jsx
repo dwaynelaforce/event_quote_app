@@ -11,13 +11,24 @@ function QuoteForm(props) {
     const [discounts, setDiscounts] = useState({});
     const [total, setTotal] = useState(0);
     const [masterQuote, setMasterQuote] = useState({});
+    const [showFinalQuote, setShowFinalQuote] = useState(false);
     
     const { inquiry, setInquiry, submitHandler } = props;
 
     function quoteUpdateHandler(key, val) {
+        setShowFinalQuote(false);
+        setTotal(0);
+        setDiscounts({});
+        setMasterQuote({});
         if (key === "Exhibitors" || val === 0) {
             delete quote["Premium Exhibitor Features"];
         }
+        if (masterQuote) {
+            for (let key in masterQuote) {
+                delete masterQuote[key];
+            }
+            setMasterQuote({});
+        };
         quote[key] = val;
         let sum = 0;
         for (let key in quote) {
@@ -54,7 +65,6 @@ function QuoteForm(props) {
     }
 
     function finalQuoteHandler(e) {
-        
         let tierDiscount = Math.ceil(quote.Tier * 0.2);
         discounts["20% tier discount"] = tierDiscount;
         console.log("tier discount is: ", tierDiscount)
@@ -108,6 +118,7 @@ function QuoteForm(props) {
         inquiry.masterQuote = masterQuote;
         setInquiry(inquiry);
         console.log("masterQuoteHandler: inquiry is ",inquiry);
+        setShowFinalQuote(true);
     }
 
     function inquiryUpdateHandler(e){
@@ -280,35 +291,39 @@ function QuoteForm(props) {
                 style={{backgroundColor:"#FFC107"}}>
                 <InputGroup size="lg" className="mb-3"> 
                     <InputGroup.Prepend>
-                        <InputGroup.Text>
+                        <InputGroup.Text className="px-5">
                             Subtotal: 
                         </InputGroup.Text>
                     </InputGroup.Prepend>
                     <FormControl value={"$ " + subtotal + " .00"} readOnly 
-                        className="text-right font-weight-bold pr-5"/>
+                        className="text-right font-weight-bold px-5"/>
                 </InputGroup>
             </Container>
-            <Container className="py-3 px-5 text-center">
-                
-                <h4 className="text-center mt-2 mb-4">
-                    You might be eligible for a  
-                    <span style={{color:"#FFC107"}}> discount </span>
-                    .
-                </h4>
-                <Button className="mb-2" 
-                    size="lg" variant="warning"
-                    onClick={finalQuoteHandler}>
-                    <strong style={{color:"#184D62"}}>Calculate total</strong>
-                </Button>
-                <p className="text-center mt-2 mb-4">
-                    and 
-                    <b style={{color:"#FFC107"}}> find out </b>
-                    (results below) !
-                </p>
-            </Container>
-            <FinalQuote total={total} subtotal={subtotal} 
-                quote={quote} discounts={discounts} 
-                submitHandler={submitHandler}/>
+            
+            {showFinalQuote
+                ? <FinalQuote total={total}
+                    subtotal={subtotal} 
+                    discounts={discounts} 
+                    submitHandler={submitHandler}/>
+                : <Container className="py-3 px-5 text-center">
+                    <h4 className="text-center mt-2 mb-4">
+                        You might be eligible for a  
+                        <span style={{color:"#FFC107"}}> discount </span>
+                        .
+                    </h4>
+                    <Button className="mb-2" 
+                        size="lg" variant="warning"
+                        onClick={finalQuoteHandler}>
+                        <strong style={{color:"#184D62"}}>Calculate total</strong>
+                    </Button>
+                    <p className="text-center mt-2 mb-4">
+                        and 
+                        <b style={{color:"#FFC107"}}> find out </b>
+                        (results below) !
+                    </p>
+                </Container>
+            }
+            
         </Form>
     );
 }
