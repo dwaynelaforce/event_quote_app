@@ -1,4 +1,4 @@
-import { Form, Row, Col } from 'react-bootstrap';
+import { Form, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 function PassportContext(props){
     const {quote, setQuote, checkboxHandler, quoteUpdateHandler} = props;
     
@@ -13,14 +13,11 @@ function PassportContext(props){
     }
     return(
         <>
-            <Col>
-                <Form.Check type="checkbox" onChange={checkboxHandler} value="300" name={name} />
-            </Col>
-            <Col>
-                <Form.Label >Premium Exhibitor Features / Passport Contest</Form.Label></Col>
-            <Col>
-                <Form.Label>$300.00</Form.Label>
-            </Col>
+            <InputGroup.Checkbox onChange={checkboxHandler} value="300" name={name}/>
+            <FormControl value="Passport Contest" readOnly/>
+            <InputGroup.Append>
+                <InputGroup.Text>($300.00)</InputGroup.Text>
+            </InputGroup.Append>
         </>
     )
 }

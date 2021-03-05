@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import {Container, Table, Row, Col, Image} from 'react-bootstrap';
 import axios from 'axios';
 import MasterQuote from '../components/MasterQuote.jsx';
-import whovaLogo from '../static/whova-logo-white.png';
+import Header from '../components/Header.jsx';
 function InquiryInfo(props) {
     const [myInquiry, setMyInquiry] = useState(null);
     const [eventStartDate, setEventStartDate] = useState(null);
@@ -38,43 +38,33 @@ function InquiryInfo(props) {
     // here we render myInquiry's data
     return (
         <>
-        <Container align="center">
-                <Image src={whovaLogo} style={{margin:"10px"}} />
+        <Container>
+        <Header/>
         </Container>
         <Container className="py-3 px-3"
             style={{backgroundColor:"#184D62", borderRadius:"10px", textAlign:"center"}}>
                 <h1 style={{color:"#F9C10A"}}> Inquiry Information</h1>
             <Container className="py-3 px-3" style={{backgroundColor:"#FAFAFA", color:"black"}}>
-            <Row>
-                <Col>
-                    <p><b>{myInquiry.orgName}</b></p>
-                </Col>
-                <Col>
-                    <p>{myInquiry.orgAddress}</p>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <p>{myInquiry.contactName}</p>
-                </Col>
-                <Col>
-                    <a href={"mailto:" + myInquiry.contactEmail}>{myInquiry.contactEmail}</a>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <p>Number of Events</p>
-                    <p>{myInquiry.numberOfEvents}</p>
-                </Col>
-                <Col>
-                    <p>Event Start</p>
-                    <p>{eventStartDate}</p>
-                </Col>
-                <Col>
-                    <p> Event End:</p>
-                    <p>{eventEndDate}</p>
-                </Col>
-            </Row>
+            <Table striped bordered hover variant="secondary">
+                <tbody>
+                    <tr>
+                        <td><b>{myInquiry.orgName}</b></td>
+                        <td>{myInquiry.orgAddress} </td>
+                    </tr>
+                    <tr>
+                        <td> {myInquiry.contactName}</td>
+                        <td> <a href={"mailto:" + myInquiry.contactEmail}>{myInquiry.contactEmail}</a></td>
+                    </tr>
+                    <tr>
+                        <td> Number of Events</td>
+                        <td>{myInquiry.numberOfEvents}</td>
+                    </tr>
+                    <tr>
+                        <td>Event Start: {eventStartDate}</td>
+                        <td>Event End: {eventEndDate} </td>
+                    </tr>
+                </tbody>
+            </Table>
             </Container>
             
             <MasterQuote masterQuote={myInquiry.masterQuote}/>

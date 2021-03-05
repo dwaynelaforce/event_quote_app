@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import QuoteForm from '../components/QuoteForm.jsx';
 import { Container, Form, Row, Col, Image, Button } from 'react-bootstrap';
 import axios from 'axios';
 import {navigate} from '@reach/router';
 
+import QuoteForm from '../components/QuoteForm.jsx';
+import Header from '../components/Header.jsx';
+
 import downArrow from "../static/down_arrow.png";
-import headshot from "../static/headshot.jpg";
 import whovaLogo from "../static/whova-logo-white.png";
 
 function CustomerInquiry(props) {
@@ -38,52 +39,14 @@ function CustomerInquiry(props) {
 
     return (
         <Container>
-            <Row xs={12} className="p-3">
-                <Col lg={{offset: 0}}
-                    md={{span: 9, offset: 3}}
-                    sm={{span: 10, offset: 2}}
-                    xs={{span: 12, offset: 0}}
-                    className=" mb-2">
-                    <Image src={whovaLogo}
-                        style={{height:"105px", width:"315px"}}/>
-                </Col>
-                <Col lg={{offset: 0}} 
-                    md={{span: 9, offset: 3}} 
-                    sm={{span: 10, offset: 2}}
-                    xs={{span: 12, offset: 0}}
-                    className="pl-4 mb-2">
-                    <Row>
-                        <Image src={headshot}
-                            className="mt-1"
-                            roundedCircle thumbnail
-                            style={{width:"100px", height:"100px"}}/>
-                        <Col
-                            className="mb-2">
-                            <h5>Cole Dillinger</h5>
-                            <h6>Principal Account Executive</h6>
-                            <p className="mb-0">
-                                <a href="mailto:cole.dillinger@whova.com"
-                                    style={{color:"white"}}>
-                                    ✉ cole.dillinger@whova.com
-                                </a>
-                            </p>
-                            <p className="mb-0">
-                                <a href="tel:831-238-0076"
-                                    style={{color:"white"}}>
-                                    ☏ 831-238-0076
-                                </a>
-                            </p>
-                        </Col>
-                    </Row>
-                </Col>
-            </Row>
+            <Header/>
             <Form className="rounded"
                 onSubmit={submitHandler}
                 style={{backgroundColor:"#184D62"}}>
                 <h1 className="py-3 px-3 text-center"
-                    style={{color:"#FFC107"}}>Quote Request</h1>
+                    style={{color:"#FFC107"}}> Request a quote for your event</h1>
                 <Container className="py-4 px-5"
-                    style={{backgroundColor:"#FAFAFA",color:"black"}}>
+                    style={{backgroundColor:"#FAFAFA",color:"#184D62"}}>
                     <p className="text-center mt-2 mb-4">Please indroduce yourself:</p>
                     <Row>
                         <Col md>
@@ -130,14 +93,15 @@ function CustomerInquiry(props) {
                     event?</h4>
                     <p className="text-center mt-2 mb-4">Just hit submit and I'll get back to you to discuss your needs.</p>
                     <Row>
-                        <Button type="submit" variant="warning" className="mx-auto">
+                        <Button type="submit" variant="warning" className="mx-auto" size="lg">
                             <b style={{color:"white"}}>Submit</b>
                         </Button>
                     </Row>
                 </Container>
                 <Container className="py-4 px-5">
-                    <h4 className="text-center mt-2 mb-4">Interested in scheduling 
-                        <span style={{color:"#FFC107"}}> multiple </span>
+                    <h4 className="text-center mt-2 mb-4">Interested in 
+                        <span className="display-4"
+                            style={{color:"#FFC107"}}> multiple </span>
                     events?</h4>
                     <p className="text-center mt-2 mb-4">Check out our
                         <b style={{color:"#FFC107"}}> quote calculator </b>
@@ -156,8 +120,18 @@ function CustomerInquiry(props) {
                     <Image src={downArrow} fluid className="mx-auto my-2"></Image>
                 </Row>
             </Col>
-            <QuoteForm inquiry={inquiry} setInquiry={setInquiry}/>
-            <Button variant="success" onClick={submitHandler}>Send to Whova</Button>
+            <QuoteForm inquiry={inquiry} setInquiry={setInquiry} 
+                submitHandler={submitHandler}/>
+            <Container>
+                <Row style={{height:"25px", backgroundColor:"FAFAFA"}}>
+
+                </Row>
+                <Row>
+                    <Image src={whovaLogo}
+                        className="mx-auto"
+                        style={{height:"105px", width:"315px"}}/>
+                </Row>
+            </Container>
         </Container>
     );
 }
