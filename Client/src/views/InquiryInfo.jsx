@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import {Container, Table, Row, Col} from 'react-bootstrap';
+import {Container, Table, Row, Col, Image} from 'react-bootstrap';
 import axios from 'axios';
-import MasterQuote from '../components/MasterQuote.jsx'
+import MasterQuote from '../components/MasterQuote.jsx';
+import whovaLogo from '../static/whova-logo-white.png';
 function InquiryInfo(props) {
     const [myInquiry, setMyInquiry] = useState(null);
     const [eventStartDate, setEventStartDate] = useState(null);
@@ -36,8 +37,14 @@ function InquiryInfo(props) {
 
     // here we render myInquiry's data
     return (
+        <>
+        <Container align="center">
+                <Image src={whovaLogo} style={{margin:"10px"}} />
+        </Container>
         <Container className="py-3 px-3"
-            style={{backgroundColor:"#184D62", color:"white", borderRadius:"rounded"}}>
+            style={{backgroundColor:"#184D62", borderRadius:"10px", textAlign:"center"}}>
+                <h1 style={{color:"#F9C10A"}}> Inquiry Information</h1>
+            <Container className="py-3 px-3" style={{backgroundColor:"#FAFAFA", color:"black"}}>
             <Row>
                 <Col>
                     <p><b>{myInquiry.orgName}</b></p>
@@ -68,8 +75,12 @@ function InquiryInfo(props) {
                     <p>{eventEndDate}</p>
                 </Col>
             </Row>
+            </Container>
+            
             <MasterQuote masterQuote={myInquiry.masterQuote}/>
+            <h1 style={{color:"#F9C10A"}}> Thank You For Choosing Whova!</h1>
         </Container>
+        </>
     );
 }
 export default InquiryInfo;

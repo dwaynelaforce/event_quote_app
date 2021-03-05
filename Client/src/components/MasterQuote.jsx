@@ -7,18 +7,30 @@ function MasterQuote(props) {
     };
     return (
         <>
-            <Container 
+            <Container
                 className="py-3 px-3"
-                style={{ backgroundColor: "#184D62", color: "black", borderRadius:"30px"}}>
-                <h4> *This is an unofficial quote. This is an estimate. This information has been sent to  <a href="mailto:cole.dillinger@whova.com">cole.dillinger@whova.com</a> who will get back to you for an official quote</h4>
-                <h2 style={{ color: "lightGreen" }}>Subtotal: ${masterQuote.subtotal}.00</h2>
+                style={{ backgroundColor: "#FAFAFA", color: "black" }}>
+                <Container>
+                    <p> *This is an estimate. This information has been sent to  <a href="mailto:cole.dillinger@whova.com">cole.dillinger@whova.com</a> who will get back to you for an official quote</p>
+                </Container>
+                <h2 style={{ color: "lightblue" }}>Subtotal: ${masterQuote.subtotal}.00</h2>
                 <h3>Discounts:</h3>
-                <ul>
-                    {Object.keys(masterQuote.discounts).map((key, idx) => (
-                        <li key={idx} style={{ color: "green",listStyleType:"none"}}> {key}: -${masterQuote.discounts[key]}.00</li>
-                    ))}
-                </ul>
-                <h1 style={{ color: "green" }}>Total: ${masterQuote.total}.00</h1>
+                <Table striped bordered hover variant="primary">
+                    <thead>
+                        <th> Discount </th>
+                        <th> Price</th>
+                    </thead>
+                    <tbody>
+                        {Object.keys(masterQuote.discounts).map((key, idx) => (
+                            <tr>
+                                <td key={idx}> {key}</td>
+                                <td style={{color:"red"}}>-${masterQuote.discounts[key]}.00</td>
+                            </tr>
+                        ))}
+
+                    </tbody>
+                </Table>
+                <h1 style={{ color: "lightgreen" }}>Total: ${masterQuote.total}.00</h1>
                 <Container>
                     <h3 >Itemized Quote</h3>
                     <Table striped bordered hover variant="light">
@@ -29,7 +41,7 @@ function MasterQuote(props) {
                             </tr>
                         </thead>
                         <tbody>
-                            {Object.keys(masterQuote.quote).map((objKey,idx)=>(
+                            {Object.keys(masterQuote.quote).map((objKey, idx) => (
                                 <tr>
                                     <td key={idx}> {objKey}</td>
                                     <td>${masterQuote.quote[objKey]}.00</td>
