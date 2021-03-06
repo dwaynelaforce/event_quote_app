@@ -3,6 +3,8 @@ import {Container, Table, Row, Col, Image} from 'react-bootstrap';
 import axios from 'axios';
 import MasterQuote from '../components/MasterQuote.jsx';
 import Header from '../components/Header.jsx';
+import whovaLogo from "../static/whova-logo-white.png";
+
 function InquiryInfo(props) {
     const [myInquiry, setMyInquiry] = useState(null);
     const [eventStartDate, setEventStartDate] = useState(null);
@@ -66,23 +68,23 @@ function InquiryInfo(props) {
                     <Row>
                         <Col md>
                             {eventStartDate ?
-                                <span className="h5">
+                                <span className="h6">
                                     Next Event: <mark> {eventStartDate} </mark>
                                 </span>
                                 : 
                                 <span>No event dates</span>
                             }
                             {eventStartDate && eventEndDate ?
-                                <span>
+                                <span className="h6">
                                     to
                                     <mark> {eventEndDate}</mark>
                                 </span>
                                 : null}
                         </Col>
                         <Col md>
-                            <h5>
+                            <h6>
                                 <mark>{myInquiry.numberOfEvents} </mark>
-                                events requested</h5>
+                                events requested</h6>
                         </Col>
                     </Row>
                     {/* <Table striped bordered hover variant="secondary">
