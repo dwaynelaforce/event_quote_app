@@ -12,11 +12,11 @@ function MasterQuote(props) {
                 style={{ backgroundColor: "#FAFAFA", color: "#184D62" }}>
                 <Container>
                     <h3 className="text-center">Quote Details</h3>
-                    <Table striped bordered hover 
+                    <Table striped bordered hover variant="none"
                         className="mx-auto"
                         style={{maxWidth:"800px"}}>
                         <thead>
-                            <tr>
+                            <tr style ={{backgroundColor:"#F9C10A"}}>
                                 <th> Item </th>
                                 <th> Price </th>
                             </tr>
@@ -46,7 +46,7 @@ function MasterQuote(props) {
                                     </td>
                                 </tr>
                             ))}
-                            <tr>
+                            <tr style ={{backgroundColor:"#F9C10A"}}>
                                 <td><h3><strong>Total:</strong></h3></td>
                                 <td className="display-4">${masterQuote.total}.00</td>
                             </tr>

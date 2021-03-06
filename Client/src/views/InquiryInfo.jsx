@@ -59,7 +59,7 @@ function InquiryInfo(props) {
                         <Col md>
                             <h3>{myInquiry.orgName}</h3>
                             <h6 classname="px-5">
-                                <a href="">{myInquiry.contactEmail}</a>
+                                <a href={"mailto:"+myInquiry.contactEmail}>{myInquiry.contactEmail}</a>
                             </h6>
                             <h6>{myInquiry.orgAddress}</h6>
                         </Col>
@@ -109,7 +109,9 @@ function InquiryInfo(props) {
                     </Table> */}
                 </Container>
                 <MasterQuote masterQuote={myInquiry.masterQuote}/>
-                <h1 style={{color:"#F9C10A"}}> Thank You For Choosing Whova!</h1>
+                <Container as={Row} className="mb-2 mt-3">
+                    <Image src={whovaLogo} className="mx-auto" style={{height:"105px", width:"315px"}}/>
+                </Container>
             </Container>
         </Container>
     );

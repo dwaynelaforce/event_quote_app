@@ -27,8 +27,10 @@ function CustomerInquiry(props) {
 
     function submitHandler(e) {
         e.preventDefault();
-        console.log("submitHandler: inquiry is ", inquiry);
-
+        if (!inquiry.contactName || !inquiry.contactEmail || !inquiry.orgName || !inquiry.orgAddress){
+            window.alert("Don't forget to fill out your contact information at the top!");
+            return null;
+        } 
         axios.post('http://localhost:8000/api/create', inquiry)
             .then(response => {                console.log("successfully added to db", response);
                 window.alert("Thank you for submitting your inquiry! Cole Dillinger will get back to you shortly.  Your inquiry details are on the next page.");

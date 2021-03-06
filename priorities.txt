@@ -1,10 +1,8 @@
 P1 ##################
-    styling
-        InquiryInfo minor tweaks
+    done with P1 baby
 
 
 P2 ##################
-    validation on FinalQuote submit button if contact info on CustomerInquiry missing
     node emails have content from inquiry
     quote object restructure so number items have their value and cost, not just cost
 
@@ -31,6 +29,7 @@ DONE ################
             inquiryInfo should look more like a paper receipt or PDF or something
             CustomerInquiry - move quote area further down for user to scroll
             QuoteForm - checkboxes look like shite
+            InquiryInfo minor tweaks
         bugs
             total sometimes needs to be calculated twice to be correct
             premium exhibitor features / passport contest $300 (only if exhibitors)
@@ -39,6 +38,7 @@ DONE ################
             passport charge not removed from quote if exhibitrs is changed to 0
             
     P2 ##################
+        validation on FinalQuote submit button if contact info on CustomerInquiry missing
 
 ******BEFORE DEPLOYMENT****
 Change to address to autoEmail.js
