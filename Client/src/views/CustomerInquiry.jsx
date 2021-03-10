@@ -7,9 +7,10 @@ import QuoteForm from '../components/QuoteForm.jsx';
 import Header from '../components/Header.jsx';
 
 import downArrow from "../static/down_arrow.png";
-import whovaLogo from "../static/whova-logo-white.png";
+import logo from "../static/logo.png";
 
 function CustomerInquiry(props) {
+    
     const [inquiry, setInquiry] = useState({numberOfEvents:1, masterQuote:null});
     
     function inquiryUpdateHandler(e){
@@ -32,8 +33,9 @@ function CustomerInquiry(props) {
             return null;
         } 
         axios.post('http://localhost:8000/api/create', inquiry)
-            .then(response => {                console.log("successfully added to db", response);
-                window.alert("Thank you for submitting your inquiry! Cole Dillinger will get back to you shortly.  Your inquiry details are on the next page.");
+            .then(response => {
+                console.log("successfully added to db", response);
+                window.alert("Thank you for submitting your inquiry!  We will get back to you shortly.  Your inquiry details are on the next page.");
                 navigate(`/inquiry/${response.data._id}`);
             })
             .catch(err => console.log("there was an error adding to the db", err))
@@ -129,7 +131,7 @@ function CustomerInquiry(props) {
 
                 </Row>
                 <Row>
-                    <Image src={whovaLogo}
+                    <Image src={logo}
                         className="mx-auto"
                         style={{height:"105px", width:"315px"}}/>
                 </Row>

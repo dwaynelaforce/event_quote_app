@@ -1,22 +1,16 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { navigate } from '@reach/router';
-import {Form, Row, Col} from 'react-bootstrap';
+import { useState } from 'react';
+import { Form } from 'react-bootstrap';
 import InquiriesTable from '../components/InquiriesTable.jsx';
 
 function Admin(props) {
-    const [inquiriesList, setInquiriesList] = useState([]);
-    const [inputPassword, setInputPassword] = useState("");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    
+    // default password
     const adminPassword = "admin"
 
-
-    
-    
     function passwordHandler(e) {
         e.preventDefault();
         let userInput = e.target.value;
-        setInputPassword(userInput);
         if (userInput === adminPassword){
             setIsLoggedIn(true);
         } else {
@@ -25,7 +19,7 @@ function Admin(props) {
     }
     return (
         <div>
-            <div>
+            <div className="mb-3">
                 <h1>Admin Login</h1>
                 <Form.Row>
                     <div className="col">
@@ -34,7 +28,7 @@ function Admin(props) {
                     <div className="col"></div>
                 </Form.Row>
             </div>
-            <InquiriesTable isLoggedIn={isLoggedIn} />
+            <InquiriesTable isLoggedIn={isLoggedIn}/>
         </div>
     );
 }

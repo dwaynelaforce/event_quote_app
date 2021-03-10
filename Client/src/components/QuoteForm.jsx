@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import FinalQuote from './FinalQuote.jsx';
 import PassportContest from'./PassportContest.jsx';
 import { Form, FormControl, Row, Col, Button, Container, InputGroup } from 'react-bootstrap';
-import axios from 'axios';
-import solarPanel from '../static/panel.png';
 
 function QuoteForm(props) {
     const [quote, setQuote] = useState({});

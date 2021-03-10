@@ -1,6 +1,11 @@
 import { Row, Col, Image } from 'react-bootstrap';
 import headshot from "../static/headshot.jpg";
-import whovaLogo from "../static/whova-logo-white.png";
+import companyLogo from "../static/logo.png";
+
+const contactName = "Your Name"
+const contactTitle = "Account Manager"
+const contactEmail = "example@email.com"
+const contactPhone = "800-123-4567"
 
 function Header () {
     return (
@@ -11,7 +16,7 @@ function Header () {
                 sm={{span: 10, offset: 2}}
                 xs={{span: 12, offset: 0}}
                 className=" mb-2">
-                <Image src={whovaLogo}
+                <Image src={companyLogo}
                     style={{height:"105px", width:"315px"}}/>
             </Col>
             <Col lg={{offset: 0}} 
@@ -26,18 +31,18 @@ function Header () {
                         style={{width:"100px", height:"100px"}}/>
                     <Col
                         className="mb-2">
-                        <h5>Cole Dillinger</h5>
-                        <h6>Principal Account Executive</h6>
+                        <h5>{contactName}</h5>
+                        <h6>{contactTitle}</h6>
                         <p className="mb-0">
-                            <a href="mailto:cole.dillinger@whova.com"
+                            <a href={"mailto:" + contactEmail}
                                 style={{color:"white"}}>
-                                ✉ cole.dillinger@whova.com
+                                ✉ {contactEmail}
                             </a>
                         </p>
                         <p className="mb-0">
-                            <a href="tel:831-238-0076"
+                            <a href={"tel:" + contactPhone}
                                 style={{color:"white"}}>
-                                ☏ 831-238-0076
+                                ☏ {contactPhone}
                             </a>
                         </p>
                     </Col>

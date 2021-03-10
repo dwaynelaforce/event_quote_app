@@ -3,17 +3,17 @@ const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'ColeQuoteApp@gmail.com',
-        pass: 'WhovaGoodDay!'
+        user: 'youremail@email.com',
+        pass: 'password'
     }
 });
 
 const mailOptions = {
-    from: 'ColeQuoteApp@gmail.com',
-    to: 'anindo75@gmail.com',
-    cc: 'dwayne.laforce@gmail.com',
+    from: 'youremail@email.com',
+    to: 'recipient_email@email.com',
+    cc: 'additional_recipient@email.com',
     subject: 'New Customer Inquiry',
-    text: 'Check /admin for recent customer inquiries'
+    text: 'This is an email alert.  This text can be changed to whatever you want'
 };
 
 transporter.sendMail(mailOptions, (error, info) => {
@@ -23,6 +23,3 @@ transporter.sendMail(mailOptions, (error, info) => {
         console.log('Email sent: ' + info.response);
     }
 });
-
-// module.exports.sendNotificationEmail = () => {
-// }

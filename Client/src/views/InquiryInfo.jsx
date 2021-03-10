@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import {Container, Table, Row, Col, Image} from 'react-bootstrap';
+import {Container, Row, Col, Image} from 'react-bootstrap';
 import axios from 'axios';
 import MasterQuote from '../components/MasterQuote.jsx';
 import Header from '../components/Header.jsx';
-import whovaLogo from "../static/whova-logo-white.png";
+import logo from "../static/logo.png";
 
 function InquiryInfo(props) {
     const [myInquiry, setMyInquiry] = useState(null);
@@ -110,7 +110,7 @@ function InquiryInfo(props) {
                 </Container>
                 <MasterQuote masterQuote={myInquiry.masterQuote}/>
                 <Container as={Row} className="mb-2 mt-3">
-                    <Image src={whovaLogo} className="mx-auto" style={{height:"105px", width:"315px"}}/>
+                    <Image src={logo} className="mx-auto" style={{height:"105px", width:"315px"}}/>
                 </Container>
             </Container>
         </Container>

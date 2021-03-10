@@ -1,4 +1,4 @@
-import { Container, Table, Row, Col } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 function MasterQuote(props) {
     const { masterQuote } = props;
     if (!masterQuote) {

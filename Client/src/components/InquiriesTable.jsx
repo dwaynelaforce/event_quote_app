@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import {Table, Button} from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 
 function InquiriesTable(props){
     const {isLoggedIn} = props;
