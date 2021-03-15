@@ -264,8 +264,8 @@ function QuoteForm(props) {
                     </InputGroup.Append>
                 </InputGroup>
                 <InputGroup className="my-2">
-                    <InputGroup.Checkbox onChange={checkboxHandler} value="80" name="Whova Direct Video Uploading"/>
-                    <FormControl value="Whova Direct Video Uploading additional 5GB (3 GB for free)" readOnly/>
+                    <InputGroup.Checkbox onChange={checkboxHandler} value="80" name="Direct Video Uploading"/>
+                    <FormControl value="Direct Video Uploading additional 5GB (3 GB for free)" readOnly/>
                     <InputGroup.Append>
                         <InputGroup.Text>( $ 80.00)</InputGroup.Text>
                     </InputGroup.Append>
